@@ -444,3 +444,43 @@ System memory in use after: 95.0 MB.
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 2550.
 Total: 3.063961 ms (FindLiveObjects: 0.265693 ms CreateObjectMapping: 0.093473 ms MarkObjects: 2.671708 ms  DeleteObjects: 0.031698 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 241.147637 seconds.
+  path: Assets/Materials/Aswang.mat
+  artifactKey: Guid(695f42501728cd93fa48c89b388ef172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Aswang.mat using Guid(695f42501728cd93fa48c89b388ef172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2c9b6a7cd9d932ae6444420836ffd58') in 0.107614 seconds
+  Import took 0.111108 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000312 seconds.
+  path: Assets/Materials/Jiangshi.mat
+  artifactKey: Guid(7ccd7645ba9c6029ba7a39bcfb69d371) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Jiangshi.mat using Guid(7ccd7645ba9c6029ba7a39bcfb69d371) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11d99601c5a1e3399e39cd9bb887724d') in 0.007245 seconds
+  Import took 0.010172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Materials/Vatelas.mat
+  artifactKey: Guid(fa7e0a70a2cc6f01ca7b7edff7f44d28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Vatelas.mat using Guid(fa7e0a70a2cc6f01ca7b7edff7f44d28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee54614070f3aa329c29c9dd955b6f8b') in 0.007022 seconds
+  Import took 0.010596 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Materials/moisisure.mat
+  artifactKey: Guid(9dbc0cebd665a352c8d65f3c3a41b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/moisisure.mat using Guid(9dbc0cebd665a352c8d65f3c3a41b57e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a0102fe1d6e082eef0a925e7a06df75') in 0.010732 seconds
+  Import took 0.014414 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Materials/Draugr.mat
+  artifactKey: Guid(7117e7b375ac798ee81644c8f00f1aa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Draugr.mat using Guid(7117e7b375ac798ee81644c8f00f1aa7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b86c30903ad5fc63ae8609cabe844ad') in 0.007983 seconds
+  Import took 0.011528 seconds .
+

@@ -7,6 +7,11 @@
 *.o
 *.obj
 
+# Unity
+Library/*
+Temp/*
+Logs/*
+
 # Precompiled Headers
 *.gch
 *.pch
