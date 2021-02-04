@@ -13,7 +13,8 @@ def main():
     rospy.init_node(ros_node_name, anonymous=True)
     
     tcp_server.start({
-        'pos_rot': RosSubscriber('pos_rot', PosRot, tcp_server)
+        'pos_rot': RosSubscriber('pos_rot', PosRot, tcp_server),
+        'initial_condition': RosPublisher('initial_condition', PosRot, queue_size=10)
     })
     
     rospy.spin()

@@ -4,10 +4,11 @@ using RosPos = RosMessageTypes.AuvPackage.PosRot;
 public class RosSubscriberExample : MonoBehaviour
 {
     public GameObject auv;
+    public string topicName = "pos_rot";
 
     void Start()
     {
-        ROSConnection.instance.Subscribe<RosPos>("pos_rot", PositionChange);
+        ROSConnection.instance.Subscribe<RosPos>(topicName, PositionChange);
     }
 
     void PositionChange(RosPos positionMessage)
