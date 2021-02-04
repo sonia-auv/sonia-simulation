@@ -12,4 +12,4 @@ How to start the control in Unity:
 
 
 (Optionnal)
-8. Send message of type PosRot on /PosRot $ cd ~/catkin_ws/src/sonia-simulation/Assets/Auv_package/Scripts & ./server_endpoint.py
+8. Send message of type PosRot on /PosRot $ cd ~/catkin_ws/src/sonia-simulation/Assets/auv_package/Scripts & ./server_endpoint.py
