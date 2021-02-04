@@ -12,10 +12,10 @@ def post_pos():
     pub = rospy.Publisher(TOPIC_NAME, PosRot, queue_size=10)
     rospy.init_node(NODE_NAME, anonymous=True)
     rate = rospy.Rate(10)  # 10hz
-
+    pos_x = 0
     while not rospy.is_shutdown():
-
-        pos_x = 1
+        
+        pos_x = pos_x + 0.01
         pos_y = 2
         pos_z = 3
         rot_x = 0
@@ -25,7 +25,6 @@ def post_pos():
         pos_rot = PosRot(pos_x,pos_y,pos_z,0,0,0,1)
         pub.publish(pos_rot)
         rate.sleep()
-        break
 
 
 if __name__ == '__main__':
