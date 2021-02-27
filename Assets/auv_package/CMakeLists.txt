@@ -4,6 +4,7 @@ project(auv_package)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  sensor_msgs
   geometry_msgs
   ros_tcp_endpoint
   message_generation
@@ -16,6 +17,7 @@ add_service_files(DIRECTORY srv)
 generate_messages(
   DEPENDENCIES
   geometry_msgs
+  sensor_msgs
   std_msgs
 )
 
