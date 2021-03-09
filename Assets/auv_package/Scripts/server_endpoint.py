@@ -15,8 +15,9 @@ def main():
     tcp_server.start({
         'pos_rot': RosSubscriber('pos_rot', PosRot, tcp_server),
         'initial_condition': RosPublisher('initial_condition', PosRot, queue_size=10),
-        'sensor_msgs/Front_camera_simulation': RosPublisher('sensor_msgs/Front_camera_simulation', CamData, queue_size=10),
-        'sensor_msgs/Bottom_camera_simulation': RosPublisher('sensor_msgs/Bottom_camera_simulation', CamData, queue_size=10)
+        'sensor_msgs/Front_camera_simulation': RosPublisher('sensor_msgs/Front_camera_simulation', CamData, queue_size=1),
+        'sensor_msgs/Bottom_camera_simulation': RosPublisher('sensor_msgs/Bottom_camera_simulation', CamData, queue_size=1),
+        'front_simulation': RosPublisher('front_simulation', CameraData, queue_size=1)
     })
     
     rospy.spin()
