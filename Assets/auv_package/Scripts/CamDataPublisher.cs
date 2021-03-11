@@ -69,6 +69,8 @@ public class CamDataPublisher : MonoBehaviour
 
         ros.Send(frontTopicName, camData);
 
+        Destroy(tex);
+
     }
     private void PublishBottom()
     {
