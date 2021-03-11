@@ -1183,7 +1183,6 @@ GameObject:
   - component: {fileID: 1408107642}
   - component: {fileID: 1408107641}
   - component: {fileID: 1408107643}
-  - component: {fileID: 1408107644}
   - component: {fileID: 1408107645}
   m_Layer: 0
   m_Name: RosConnection
@@ -1234,25 +1233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topicName: initial_condition
   auv: {fileID: 8277239091393171975}
---- !u!114 &1408107644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408107640}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e9d726b0c7f276b94340297a2e75d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frontTopicName: front_camera_simulation
-  bottomTopicName: bottom_camera_simulation
-  imageHeight: 720
-  imageWidth: 720
-  imageEncoding: rgb8
-  frontRenderer: {fileID: 6317030564818346409}
-  bottomRenderer: {fileID: 2013275586416403032}
 --- !u!114 &1408107645
 MonoBehaviour:
   m_ObjectHideFlags: 0
