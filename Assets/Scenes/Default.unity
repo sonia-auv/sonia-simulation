@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657665, g: 0.49641156, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1181,9 +1181,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1408107642}
-  - component: {fileID: 1408107641}
   - component: {fileID: 1408107643}
   - component: {fileID: 1408107644}
+  - component: {fileID: 1408107641}
   m_Layer: 0
   m_Name: RosConnection
   m_TagString: Untagged
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408107640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f1f3326a3600056a80ef927220027f, type: 3}
+  m_Script: {fileID: 11500000, guid: 50139433b39ad30bb9e4b2289152fbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   auv: {fileID: 8277239091393171975}

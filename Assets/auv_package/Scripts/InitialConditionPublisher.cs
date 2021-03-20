@@ -1,4 +1,4 @@
-using RosMessageTypes.AuvPackage;
+using RosMessageTypes.Geometry;
 using UnityEngine;
 
 public class InitialConditionPublisher : MonoBehaviour
@@ -17,14 +17,8 @@ public class InitialConditionPublisher : MonoBehaviour
 
     private void PublishCI()
     {
-        PosRot auvPos = new PosRot(
-            auv.transform.position.x,
-            auv.transform.position.y,
-            auv.transform.position.z,
-            auv.transform.rotation.x,
-            auv.transform.rotation.y,
-            auv.transform.rotation.z,
-            auv.transform.rotation.w
+        Pose auvPos = new Pose(new Point(auv.transform.position.x,auv.transform.position.y,auv.transform.position.z), 
+            new Quaternion( auv.transform.rotation.x,auv.transform.rotation.y,auv.transform.rotation.z,auv.transform.rotation.w)
         );
 
         ros.Send(topicName, auvPos);

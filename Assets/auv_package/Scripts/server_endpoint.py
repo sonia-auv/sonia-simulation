@@ -4,6 +4,7 @@ import rospy
 
 from ros_tcp_endpoint import TcpServer, RosPublisher, RosSubscriber, RosService
 from auv_package.msg import *
+from geometry_msgs.msg import Pose
 
 def main():
     ros_node_name = rospy.get_param("/TCP_NODE_NAME", 'TCPServer')
@@ -13,8 +14,8 @@ def main():
     rospy.init_node(ros_node_name, anonymous=True)
     
     tcp_server.start({
-        'pos_rot': RosSubscriber('pos_rot', PosRot, tcp_server),
-        'initial_condition': RosPublisher('initial_condition', PosRot, queue_size=10),
+        'pos_rot': RosSubscriber('pos_rot', Pose, tcp_server),
+        'initial_condition': RosPublisher('initial_condition', Pose, queue_size=1),
         'sensor_msgs/Front_camera_simulation': RosPublisher('sensor_msgs/Front_camera_simulation', CamData, queue_size=1),
         'sensor_msgs/Bottom_camera_simulation': RosPublisher('sensor_msgs/Bottom_camera_simulation', CamData, queue_size=1),
         'front_simulation': RosPublisher('front_simulation', CameraData, queue_size=1)
