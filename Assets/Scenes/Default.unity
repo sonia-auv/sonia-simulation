@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657665, g: 0.49641156, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1181,10 +1181,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1408107642}
-  - component: {fileID: 1408107641}
   - component: {fileID: 1408107643}
   - component: {fileID: 1408107644}
-  - component: {fileID: 1408107645}
+  - component: {fileID: 1408107641}
   m_Layer: 0
   m_Name: RosConnection
   m_TagString: Untagged
@@ -1201,7 +1200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408107640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f1f3326a3600056a80ef927220027f, type: 3}
+  m_Script: {fileID: 11500000, guid: 50139433b39ad30bb9e4b2289152fbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   auv: {fileID: 8277239091393171975}
@@ -1234,25 +1233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topicName: initial_condition
   auv: {fileID: 8277239091393171975}
---- !u!114 &1408107644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408107640}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e9d726b0c7f276b94340297a2e75d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frontTopicName: front_camera_simulation
-  bottomTopicName: bottom_camera_simulation
-  imageHeight: 720
-  imageWidth: 720
-  imageEncoding: rgb8
-  frontRenderer: {fileID: 6317030564818346409}
-  bottomRenderer: {fileID: 2013275586416403032}
 --- !u!114 &1408107645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53123,9 +53103,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
+        'front_simulation': RosPublisher('front_simulation', CameraData, queue_size=1)
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
   m_SelectedEditorRenderState: 3
