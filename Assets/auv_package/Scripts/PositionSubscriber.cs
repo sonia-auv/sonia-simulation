@@ -14,8 +14,22 @@ public class PositionSubscriber : MonoBehaviour
 
     void PositionChange(RosPos positionMessage)
     {
-        auv.transform.position = new Vector3((float)positionMessage.position.x, (float)positionMessage.position.y, (float)positionMessage.position.z);
+        // Get message Info
+         Vector3 msgPos = new Vector3((float)positionMessage.position.x, (float)positionMessage.position.y, (float)positionMessage.position.z);
+         Quaternion msgRot = new Quaternion((float)positionMessage.orientation.x,(float)positionMessage.orientation.y,(float)positionMessage.orientation.z,(float)positionMessage.orientation.w);
+	    
+        // Get matlab frame to unity frame 
+         Quaternion lm2u= Quaternion.Euler(90, 0, 0); //matlab to unity linear transformation
+         Quaternion rm2u= Quaternion.Euler(0, 0, -90); //matlab to unity angular transformation
 
-        auv.transform.rotation = new Quaternion((float)positionMessage.orientation.x,(float)positionMessage.orientation.y,(float)positionMessage.orientation.z,(float)positionMessage.orientation.w);
+        // transform matlab frame to unity frame 
+        Vector3 position = lm2u*msgPos;
+        Quaternion orientation = msgRot *rm2u; // Transform the inital fbx rotation.
+         
+
+        auv.transform.position = position;
+        
+        // remap the vector map to match the unity frame
+        auv.transform.rotation = new Quaternion(orientation.y,orientation.z,orientation.x,-orientation.w);
     }
 }
