@@ -6,15 +6,19 @@ public class Player_control : MonoBehaviour
 {
     public string toggleFront = "";
     public string toggleBottom = "";
+    public string toggleFlyCam = "";
+    public string SendCI = "";
 
     private GameObject front = null;
     private GameObject bottom = null;
+    private GameObject flyCam = null;
 
     void Start()
     {
         front = GameObject.Find("Front");
         bottom = GameObject.Find("Bottom");
-        
+        flyCam = GameObject.Find("FlyCam");
+        flyCam.SetActive(false);
     }
 
     void Update()
@@ -26,11 +30,23 @@ public class Player_control : MonoBehaviour
             Debug.Log("ToggleFront");
         }
 
-        if (Input.GetKeyUp(toggleBottom))
+        if (Input.GetKeyDown(toggleBottom))
         {
             ToggleBottom();
             UpdateDisplay();
             Debug.Log("ToggleBottom");
+        }
+
+        if (Input.GetKeyDown(toggleFlyCam))
+        {
+            ToggleFlyCam();
+            Debug.Log("toggleFlyCam");
+        }
+
+        if (Input.GetKeyDown(SendCI))
+        {
+            InitialConditionPublisher.Instance.publishInitialCondition();
+            Debug.Log("SendCI");
         }
     }
 
@@ -55,6 +71,20 @@ public class Player_control : MonoBehaviour
         else
         {
             bottom.SetActive(true);
+        }
+    }
+
+    private void ToggleFlyCam()
+    {
+        if (flyCam.activeSelf)
+        {
+            flyCam.transform.position = front.transform.position;
+            flyCam.transform.rotation = front.transform.rotation;
+            flyCam.SetActive(false);
+        }
+        else
+        {
+            flyCam.SetActive(true);
         }
     }
 
