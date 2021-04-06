@@ -6,6 +6,9 @@ public class PositionSubscriber : MonoBehaviour
 {
     public GameObject auv;
     public string topicName = "pos_rot";
+    
+    private Quaternion lm2u= Quaternion.Euler(90, 0, 0); //matlab to unity linear transformation
+    private Quaternion rm2u= Quaternion.Euler(0, 0, -90); //matlab to unity angular transformation
 
     void Start()
     {
@@ -17,10 +20,7 @@ public class PositionSubscriber : MonoBehaviour
         // Get message Info
          Vector3 msgPos = new Vector3((float)positionMessage.position.x, (float)positionMessage.position.y, (float)positionMessage.position.z);
          Quaternion msgRot = new Quaternion((float)positionMessage.orientation.x,(float)positionMessage.orientation.y,(float)positionMessage.orientation.z,(float)positionMessage.orientation.w);
-	    
-        // Get matlab frame to unity frame 
-         Quaternion lm2u= Quaternion.Euler(90, 0, 0); //matlab to unity linear transformation
-         Quaternion rm2u= Quaternion.Euler(0, 0, -90); //matlab to unity angular transformation
+	           
 
         // transform matlab frame to unity frame 
         Vector3 position = lm2u*msgPos;
@@ -32,4 +32,5 @@ public class PositionSubscriber : MonoBehaviour
         // remap the vector map to match the unity frame
         auv.transform.rotation = new Quaternion(orientation.y,orientation.z,orientation.x,-orientation.w);
     }
+         
 }
