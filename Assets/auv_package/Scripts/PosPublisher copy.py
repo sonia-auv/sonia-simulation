@@ -2,7 +2,7 @@
 
 import random
 import rospy
-from Sensor.msg import Image
+from Geometry.msg import Pose
 
 TOPIC_NAME = 'pos_rot'
 NODE_NAME = 'pos_publisher'
