@@ -10,7 +10,7 @@ public class CameraDataPublisher : MonoBehaviour
     public string frontTopicName = "front_simulation";
     public string bottomTopicName = "bottom_simulation";
     public UInt32 imageHeight = 720;
-    public UInt32 imageWidth = 720;
+    public UInt32 imageWidth = 1080;
     public string imageEncoding = "rgb8";
 
 
@@ -28,7 +28,6 @@ public class CameraDataPublisher : MonoBehaviour
     private void Update() 
     {
         PublishCameraData();
-        System.Threading.Thread.Sleep(100);
     }
     private void PublishCameraData()
     {
@@ -64,16 +63,17 @@ public class CameraDataPublisher : MonoBehaviour
         ros.Send(frontTopicName, cameraData);
 
         Destroy(tex);
-
     }
     private void PublishBottom()
     {
+
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
         RenderTexture.active = bottomRenderer.GetComponent<Camera>().targetTexture;
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
         tex.Apply();
 
         RosMessageTypes.Std.Header header = new RosMessageTypes.Std.Header();
+
         Image cameraData = new Image (
         header,
         imageHeight,
@@ -87,6 +87,5 @@ public class CameraDataPublisher : MonoBehaviour
         ros.Send(bottomTopicName, cameraData);
 
         Destroy(tex);
-
     }
 }
