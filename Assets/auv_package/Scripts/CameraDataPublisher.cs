@@ -45,19 +45,12 @@ public class CameraDataPublisher : MonoBehaviour
 
     private void PublishFront()
     {
-        //Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth);
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
         RenderTexture.active = frontRenderer.GetComponent<Camera>().targetTexture;
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
         tex.Apply();
 
         RosMessageTypes.Std.Header header = new RosMessageTypes.Std.Header();
-        
-        // header.seq = sequence;
-
-        // header.frame_id = "";
-
-
         Image cameraData = new Image (
         header,
         imageHeight,
@@ -75,6 +68,25 @@ public class CameraDataPublisher : MonoBehaviour
     }
     private void PublishBottom()
     {
+        Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
+        RenderTexture.active = bottomRenderer.GetComponent<Camera>().targetTexture;
+        tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
+        tex.Apply();
+
+        RosMessageTypes.Std.Header header = new RosMessageTypes.Std.Header();
+        Image cameraData = new Image (
+        header,
+        imageHeight,
+        imageWidth,
+        imageEncoding,
+        0,
+        3 * imageWidth,
+        tex.GetRawTextureData()
+        );
+
+        ros.Send(bottomTopicName, cameraData);
+
+        Destroy(tex);
 
     }
 }

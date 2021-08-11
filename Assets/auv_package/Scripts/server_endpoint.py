@@ -19,7 +19,8 @@ def main():
         'initial_condition': RosPublisher('initial_condition', Pose, queue_size=10),
         # 'sensor_msgs/Front_camera_simulation': RosPublisher('sensor_msgs/Front_camera_simulation', CamData, queue_size=10),
         # 'sensor_msgs/Bottom_camera_simulation': RosPublisher('sensor_msgs/Bottom_camera_simulation', CamData, queue_size=10),
-        'front_simulation': RosPublisher('front_simulation', Image, queue_size=10)
+        'front_simulation': RosPublisher('front_simulation', Image, queue_size=10),
+        'bottom_simulation': RosPublisher('bottom_simulation', Image, queue_size=10)
     })
     
     rospy.spin()
