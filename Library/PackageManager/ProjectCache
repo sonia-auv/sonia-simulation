@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637677847970000000
-    m_Hash: 2501157845
+      ticks: 637684268100000000
+    m_Hash: 1688414169
   m_LockFileStatus:
     m_FilePath: /home/kamoss/catkin_ws/src/sonia-simulation/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637677849050000000
-    m_Hash: 3493355380
+      ticks: 637684268160000000
+    m_Hash: 3272431331
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -319,12 +319,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.visualstudio.git
         revision: 680e06d94ffca728223ae2cb14bb919cd354e2c1
         path: 
-    - packageId: com.unity.ide.vscode@1.2.3
+    - packageId: com.unity.ide.vscode@1.2.4
       testable: 0
       isDirectDependency: 1
-      version: 1.2.3
+      version: 1.2.4
       source: 1
-      resolvedPath: /home/kamoss/catkin_ws/src/sonia-simulation/Library/PackageCache/com.unity.ide.vscode@1.2.3
+      resolvedPath: /home/kamoss/catkin_ws/src/sonia-simulation/Library/PackageCache/com.unity.ide.vscode@1.2.4
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -352,6 +352,7 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.2
         - 1.2.3
+        - 1.2.4
         compatible:
         - 1.0.2
         - 1.0.3
@@ -364,7 +365,8 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.2
         - 1.2.3
-        verified: 1.2.3
+        - 1.2.4
+        verified: 1.2.4
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -380,13 +382,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637394922300000000
+      datePublishedTicks: 0
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
-        url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
-        revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
+        url: https://github.com/Unity-Technologies/com.unity.ide.vscode.git
+        revision: 1f4f605d5c988cb610c372b5c5216c46cc8f5d30
         path: 
     - packageId: com.unity.render-pipelines.universal@10.6.0
       testable: 0
@@ -3505,4 +3507,4 @@ m_PackageAssets:
   m_LocalPackages:
     m_LocalFileStatus: []
 m_ProjectPath: /home/kamoss/catkin_ws/src/sonia-simulation/Packages
-m_EditorVersion: 2020.3.18f1 (a7d1c678663c)
+m_EditorVersion: 2020.3.19f1 (68f137dc9bbe)
