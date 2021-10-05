@@ -2,6 +2,8 @@ using UnityEngine;
 using RosMessageTypes.Geometry;
 using System.Threading;
 using System.Collections;
+using Unity.Robotics.ROSTCPConnector;
+
 // Singleton Class
 
 public class InitialConditionPublisher : MonoBehaviour
@@ -38,7 +40,8 @@ public class InitialConditionPublisher : MonoBehaviour
     void Start()
     {
         // start the ROS connection
-        ros = ROSConnection.instance;
+        ros = ROSConnection.GetOrCreateInstance();
+        ros.RegisterPublisher<PoseMsg>(topicName);
         publishInitialCondition();
     }
 
@@ -54,9 +57,9 @@ public class InitialConditionPublisher : MonoBehaviour
         UnityEngine.Vector3 pos = (lm2u*msgPos); // Transform position
         UnityEngine.Quaternion ori = msgRot * rm2u ; // Transform the inital fbx rotation.
       
-        // remap the quaternion to  map to match the the NED frame
-        Pose auvPos = new Pose(new Point(pos.x, pos.y, pos.z), 
-            new Quaternion( ori.y, ori.z, ori.x, - ori.w)
+        // remap the quaternion to map to match the NED frame
+        PoseMsg auvPos = new PoseMsg(new PointMsg(pos.x, pos.y, pos.z), 
+            new QuaternionMsg( ori.y, ori.z, ori.x, - ori.w)
         );
 
         ros.Send(topicName, auvPos);

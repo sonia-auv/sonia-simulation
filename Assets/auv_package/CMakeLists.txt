@@ -3,11 +3,12 @@ project(auv_package)
 
 find_package(catkin REQUIRED COMPONENTS
   rospy
-  std_msgs
-  sensor_msgs
-  geometry_msgs
   ros_tcp_endpoint
   message_generation
+  unity_robotics_demo_msgs
+  geometry_msgs
+  sensor_msgs
+  std_msgs
 )
 
 add_message_files(DIRECTORY msg)
@@ -16,19 +17,13 @@ add_service_files(DIRECTORY srv)
 
 generate_messages(
   DEPENDENCIES
-  geometry_msgs
-  sensor_msgs
-  std_msgs
+  unity_robotics_demo_msgs
 )
 
 catkin_package(CATKIN_DEPENDS
     ros_tcp_endpoint
+    unity_robotics_demo_msgs
     message_runtime)
-
-catkin_install_python(PROGRAMS
-  Scripts/server_endpoint.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
 
 
 #############
