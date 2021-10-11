@@ -1,7 +1,9 @@
 using System.Threading;
 using System;
 using RosMessageTypes.Sensor;
+using RosMessageTypes.Std;
 using UnityEngine;
+using Unity.Robotics.ROSTCPConnector;
 
 
 public class CameraDataPublisher : MonoBehaviour
@@ -22,7 +24,9 @@ public class CameraDataPublisher : MonoBehaviour
     {
         sequence = 0;
         // start the ROS connection
-        ros = ROSConnection.instance;
+        ros = ROSConnection.GetOrCreateInstance();
+        ros.RegisterPublisher<ImageMsg>(frontTopicName);
+        ros.RegisterPublisher<ImageMsg>(bottomTopicName);
     }
 
     private void Update() 
@@ -50,8 +54,10 @@ public class CameraDataPublisher : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
         tex.Apply();
 
-        RosMessageTypes.Std.Header header = new RosMessageTypes.Std.Header();
-        Image cameraData = new Image (
+        
+
+        HeaderMsg header = new HeaderMsg();
+        ImageMsg cameraData = new ImageMsg (
         header,
         imageHeight,
         imageWidth,
@@ -73,8 +79,8 @@ public class CameraDataPublisher : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
         tex.Apply();
 
-        RosMessageTypes.Std.Header header = new RosMessageTypes.Std.Header();
-        Image cameraData = new Image (
+        HeaderMsg header = new HeaderMsg();
+        ImageMsg cameraData = new ImageMsg (
         header,
         imageHeight,
         imageWidth,
