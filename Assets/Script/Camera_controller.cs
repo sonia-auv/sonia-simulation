@@ -4,6 +4,7 @@ using System.Collections;
 public class Camera_controller : MonoBehaviour {
      
     float camSens = 10.0f; //How sensitive
+    float camSensMouse = 1.0f; //How sensitive
     private Quaternion localRotation = new Quaternion(0.0f,0.0f,0.0f,1.0f);
 
     public GameObject auv = null;
@@ -26,26 +27,11 @@ public class Camera_controller : MonoBehaviour {
     }
     void Update () {
 
-        if(Input.GetKey(KeyCode.E)) {
-            rotY += Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.Q)) {
-            rotY -= Time.deltaTime * camSens;
-        } 
-        if(Input.GetKey(KeyCode.F)) {
-            rotX += Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.R)) {
-            rotX -= Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.X)) {
-            rotZ += Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.C)) {
-            rotZ -= Time.deltaTime * camSens;
-        }
-        localRotation = Quaternion.Euler(rotX,rotY, rotZ);
-        transform.rotation = localRotation;
+        float rotateHorizontal = Input.GetAxis ("Mouse X");
+        float rotateVertical = Input.GetAxis ("Mouse Y");
+
+        transform.RotateAround (auv.transform.position, Vector3.up, rotateHorizontal * camSensMouse);
+        transform.RotateAround (Vector3.zero, -transform.right, rotateVertical * camSensMouse);
        
         //Keyboard commands
         if (Input.GetKey (KeyCode.D)){
