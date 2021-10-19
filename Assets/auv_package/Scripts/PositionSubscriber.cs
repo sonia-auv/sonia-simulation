@@ -23,7 +23,7 @@ public class PositionSubscriber : MonoBehaviour
         //Vector3 msgPos = new Vector3((float)positionMessage.position.x, (float)positionMessage.position.y, (float)positionMessage.position.z);
         //Quaternion msgRot = new Quaternion((float)positionMessage.orientation.x,(float)positionMessage.orientation.y,(float)positionMessage.orientation.z,(float)positionMessage.orientation.w);
 	           
-        Vector3 msgPos = new Vector3(-(float)positionMessage.position.y, (float)positionMessage.position.z, (float)positionMessage.position.x);
+        Vector3 msgPos = new Vector3(-(float)positionMessage.position.y, -(float)positionMessage.position.z, (float)positionMessage.position.x);
         Quaternion msgRot = new Quaternion((float)positionMessage.orientation.y,-(float)positionMessage.orientation.z,-(float)positionMessage.orientation.x,(float)positionMessage.orientation.w);
 
         // transform matlab frame to unity frame 
