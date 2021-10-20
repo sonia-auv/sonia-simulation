@@ -8563,6 +8563,7 @@ GameObject:
   - component: {fileID: 1408107643}
   - component: {fileID: 1408107641}
   - component: {fileID: 1408107644}
+  - component: {fileID: 1408107645}
   m_Layer: 0
   m_Name: RosConnection
   m_TagString: Untagged
@@ -8631,6 +8632,28 @@ MonoBehaviour:
   imageEncoding: rgb8
   frontRenderer: {fileID: 6317030564818346409}
   bottomRenderer: {fileID: 2013275586416403032}
+--- !u!114 &1408107645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408107640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acef0b79454c9b4dae3f8139bc4ba77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RosIPAddress: 192.168.0.31
+  m_RosPort: 10000
+  m_ConnectOnStart: 1
+  m_KeepaliveTime: 1
+  m_NetworkTimeoutSeconds: 2
+  m_SleepTimeSeconds: 0.01
+  m_ShowHUD: 1
+  m_TFTopics:
+  - /tf
+  listenForTFMessages: 1
 --- !u!1 &1447913160
 GameObject:
   m_ObjectHideFlags: 0

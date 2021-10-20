@@ -4,9 +4,9 @@ using System.Collections;
 public class Camera_controller : MonoBehaviour {
      
     float camSens = 10.0f; //How sensitive
-    float camSensMouse = 1.0f; //How sensitive
+    float camSensMouse = 2.0f; //How sensitive
+    float mult = 1.0f; 
     private Quaternion localRotation = new Quaternion(0.0f,0.0f,0.0f,1.0f);
-
     public GameObject auv = null;
 
     private float rotY = 0.0f;
@@ -15,6 +15,7 @@ public class Camera_controller : MonoBehaviour {
     private float posX = 0.0f;
     private float posY = 0.0f;
     private float posZ = 0.0f;
+
      
 
     private void OnEnable() {
@@ -26,32 +27,49 @@ public class Camera_controller : MonoBehaviour {
         rotZ = auv.transform.rotation.z;
     }
     void Update () {
+        //Change speed
+        if (Input.GetKey (KeyCode.LeftShift)){mult = 5.0f;}
+        else {mult = 1.0f;}
 
-        float rotateHorizontal = Input.GetAxis ("Mouse X");
-        float rotateVertical = Input.GetAxis ("Mouse Y");
+        //Mouse commands
 
-        transform.RotateAround (auv.transform.position, Vector3.up, rotateHorizontal * camSensMouse);
-        transform.RotateAround (Vector3.zero, -transform.right, rotateVertical * camSensMouse);
-       
+        if (Input.GetMouseButton(1)) {
+            float rotateHorizontal = Input.GetAxis ("Mouse X");
+            float rotateVertical = Input.GetAxis ("Mouse Y");
+            //transform.RotateAround (auv.transform.position, Vector3.up, rotateHorizontal * camSensMouse * mult);
+            //transform.RotateAround (Vector3.zero, -transform.right, rotateVertical * camSensMouse * mult);
+
+            //auv.transform.Rotate(Vector3.up * -rotateVertical * camSensMouse * mult);
+            //auv.transform.Rotate(transform.right * rotateHorizontal * camSensMouse * mult);
+
+            //auv.transform.Rotate(-rotateVertical * camSensMouse * mult,rotateHorizontal * camSensMouse * mult,0.0f);
+
+            rotZ = rotateHorizontal * camSensMouse * mult;
+            rotY = rotateVertical * camSensMouse * mult;
+        }
+        //localRotation = Quaternion.Euler(0.0f,rotY,rotZ);
+        //transform.rotation = localRotation;
+
+        auv.transform.Rotate(rotY,rotZ,0.0f);
+
         //Keyboard commands
         if (Input.GetKey (KeyCode.D)){
-            posX += Time.deltaTime * 0.1f *camSens;
+            auv.transform.Translate(new Vector3(camSens * Time.deltaTime * 0.1f * mult,0,0));
         }
         if (Input.GetKey (KeyCode.A)){
-            posX -= Time.deltaTime * 0.1f *camSens;
+            auv.transform.Translate(new Vector3(-camSens * Time.deltaTime * 0.1f * mult,0,0));
         }
         if (Input.GetKey (KeyCode.S)){
-            posZ -= Time.deltaTime * 0.1f *camSens;
+            auv.transform.Translate(new Vector3(0,0,-camSens * Time.deltaTime * 0.1f * mult));
         }
         if (Input.GetKey (KeyCode.W)){
-            posZ += Time.deltaTime * 0.1f *camSens;
+            auv.transform.Translate(new Vector3(0,0,camSens * Time.deltaTime * 0.1f * mult));
         }
-        if (Input.GetKey (KeyCode.LeftShift)){
-            posY += Time.deltaTime * 0.1f *camSens;
+        if (Input.GetKey (KeyCode.E)){
+            auv.transform.Translate(new Vector3(0,camSens * Time.deltaTime * 0.1f * mult,0));
         }
-        if (Input.GetKey (KeyCode.LeftControl)){
-            posY -= Time.deltaTime * 0.1f *camSens;
+        if (Input.GetKey (KeyCode.Q)){
+            auv.transform.Translate(new Vector3(0,-camSens * Time.deltaTime * 0.1f * mult,0));
         }
-        transform.position = new Vector3(posX,posY,posZ);
     }
 }
