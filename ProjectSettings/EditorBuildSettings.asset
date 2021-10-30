@@ -9,4 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/transdec.unity
     guid: 03de314c73b773fe5ba07b8aa8214852
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 688ab01a64633ed5688645b5e211cfb8, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: e4e4915c0200d33d3a7d979c58ab2492, type: 2}
