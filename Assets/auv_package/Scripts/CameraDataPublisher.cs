@@ -23,7 +23,6 @@ public class CameraDataPublisher : MonoBehaviour
     void Start()
     {
         sequence = 0;
-        // start the ROS connection
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<ImageMsg>(frontTopicName);
         ros.RegisterPublisher<ImageMsg>(bottomTopicName);
@@ -34,6 +33,7 @@ public class CameraDataPublisher : MonoBehaviour
         PublishCameraData();
         System.Threading.Thread.Sleep(100);
     }
+
     private void PublishCameraData()
     {
         sequence = sequence + 1 ;
@@ -54,8 +54,6 @@ public class CameraDataPublisher : MonoBehaviour
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
         tex.Apply();
 
-        
-
         HeaderMsg header = new HeaderMsg();
         ImageMsg cameraData = new ImageMsg (
         header,
@@ -70,8 +68,8 @@ public class CameraDataPublisher : MonoBehaviour
         ros.Send(frontTopicName, cameraData);
 
         Destroy(tex);
-
     }
+
     private void PublishBottom()
     {
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);

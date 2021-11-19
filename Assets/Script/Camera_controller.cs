@@ -32,23 +32,13 @@ public class Camera_controller : MonoBehaviour {
         else {mult = 1.0f;}
 
         //Mouse commands
-
         if (Input.GetMouseButton(1)) {
             float rotateHorizontal = Input.GetAxis ("Mouse X");
             float rotateVertical = Input.GetAxis ("Mouse Y");
-            //transform.RotateAround (auv.transform.position, Vector3.up, rotateHorizontal * camSensMouse * mult);
-            //transform.RotateAround (Vector3.zero, -transform.right, rotateVertical * camSensMouse * mult);
-
-            //auv.transform.Rotate(Vector3.up * -rotateVertical * camSensMouse * mult);
-            //auv.transform.Rotate(transform.right * rotateHorizontal * camSensMouse * mult);
-
-            //auv.transform.Rotate(-rotateVertical * camSensMouse * mult,rotateHorizontal * camSensMouse * mult,0.0f);
 
             rotZ = rotateHorizontal * camSensMouse * mult;
             rotY = rotateVertical * camSensMouse * mult;
         }
-        //localRotation = Quaternion.Euler(0.0f,rotY,rotZ);
-        //transform.rotation = localRotation;
 
         auv.transform.Rotate(rotY,rotZ,0.0f);
 
