@@ -18,7 +18,7 @@ public class Player_control : MonoBehaviour
         front = GameObject.Find("Front");
         bottom = GameObject.Find("Bottom");
         flyCam = GameObject.Find("FlyCam");
-        flyCam.SetActive(false);
+        //flyCam.SetActive(false);
     }
 
     void Update()
