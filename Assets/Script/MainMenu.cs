@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown DropdownTarget;
     public TMP_Dropdown DropdownScene;
 
+
+
+
     public void StartGame()
     {
         SceneManager.LoadScene(DropdownScene.value + 1);
@@ -18,5 +21,10 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ResumeGame()
+    {
+        GameObject.Find("MainMenu").SetActive(false);
     }
 }
