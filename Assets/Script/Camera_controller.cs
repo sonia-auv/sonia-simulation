@@ -22,8 +22,8 @@ public class Camera_controller : MonoBehaviour {
         posX = auv.transform.position.x;
         posY = auv.transform.position.y;
         posZ = auv.transform.position.z;
-        rotX = auv.transform.rotation.x;
-        rotY = auv.transform.rotation.y;
+        rotX = 0;
+        rotY = 0;
         rotZ = auv.transform.rotation.z;
     }
     void Update () {

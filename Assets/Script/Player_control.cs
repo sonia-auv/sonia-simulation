@@ -7,18 +7,18 @@ public class Player_control : MonoBehaviour
     public string toggleFront = "";
     public string toggleBottom = "";
     public string toggleFlyCam = "";
-    public string SendCI = "";
+    //public string toggleMenu = "";
 
     private GameObject front = null;
     private GameObject bottom = null;
     private GameObject flyCam = null;
+    //private GameObject menu = null;
 
     void Start()
     {
         front = GameObject.Find("Front");
         bottom = GameObject.Find("Bottom");
         flyCam = GameObject.Find("FlyCam");
-        //flyCam.SetActive(false);
     }
 
     void Update()
@@ -41,12 +41,6 @@ public class Player_control : MonoBehaviour
         {
             ToggleFlyCam();
             Debug.Log("toggleFlyCam");
-        }
-
-        if (Input.GetKeyDown(SendCI))
-        {
-            InitialConditionPublisher.Instance.publishInitialCondition();
-            Debug.Log("SendCI");
         }
     }
 

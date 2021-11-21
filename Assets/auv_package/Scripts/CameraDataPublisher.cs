@@ -15,10 +15,15 @@ public class CameraDataPublisher : MonoBehaviour
     public UInt32 imageWidth = 720;
     public string imageEncoding = "rgb8";
 
+    public string frontStop = "";
+    public string bottomStop = "";
+
 
     public GameObject frontRenderer;
     public GameObject bottomRenderer;
     private UInt32 sequence;
+    private Boolean publishFront;
+    private Boolean publishBottom;
 
     void Start()
     {
@@ -32,6 +37,16 @@ public class CameraDataPublisher : MonoBehaviour
     {
         PublishCameraData();
         System.Threading.Thread.Sleep(100);
+
+        if (Input.GetKeyDown(frontStop))
+        {
+            publishFront = !publishFront;
+        }
+
+        if (Input.GetKeyDown(bottomStop))
+        {
+            publishBottom = !publishBottom;
+        }
     }
 
     private void PublishCameraData()
@@ -39,11 +54,17 @@ public class CameraDataPublisher : MonoBehaviour
         sequence = sequence + 1 ;
         if (frontRenderer.activeSelf)
         {
-            PublishFront();
+            if (publishFront) 
+            {
+                PublishFront();
+            }
         }
         if (bottomRenderer.activeSelf)
         {
-            PublishBottom();
+            if (publishBottom)
+            {
+                PublishBottom();
+            }
         }
     }
 
@@ -72,6 +93,7 @@ public class CameraDataPublisher : MonoBehaviour
 
     private void PublishBottom()
     {
+
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
         RenderTexture.active = bottomRenderer.GetComponent<Camera>().targetTexture;
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
