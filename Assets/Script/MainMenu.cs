@@ -10,9 +10,6 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown DropdownTarget;
     public TMP_Dropdown DropdownScene;
 
-
-
-
     public void StartGame()
     {
         SceneManager.LoadScene(DropdownScene.value + 1);

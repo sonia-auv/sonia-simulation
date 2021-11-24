@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Options : MonoBehaviour
+public class OptionsMenu : MonoBehaviour
 {
-    public void Update() 
-    {
+    public GameObject DropdownQuality = null;
 
+    private void OnEnable()
+    {
+        // TODO : Actualiser DropDown avec la qualité actuelle
+    }
+    public void SetQuality(int qualityIndex) 
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 }

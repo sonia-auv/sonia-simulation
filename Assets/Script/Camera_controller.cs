@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
  
 public class Camera_controller : MonoBehaviour {
@@ -8,6 +9,7 @@ public class Camera_controller : MonoBehaviour {
     float mult = 1.0f; 
     private Quaternion localRotation = new Quaternion(0.0f,0.0f,0.0f,1.0f);
     public GameObject auv = null;
+    public GameObject vueInverseeX = null;
 
     private float rotY = 0.0f;
     private float rotX = 0.0f;
@@ -15,6 +17,8 @@ public class Camera_controller : MonoBehaviour {
     private float posX = 0.0f;
     private float posY = 0.0f;
     private float posZ = 0.0f;
+
+    private int invX = -1;
 
      
 
@@ -33,14 +37,19 @@ public class Camera_controller : MonoBehaviour {
 
         //Mouse commands
         if (Input.GetMouseButton(1)) {
-            float rotateHorizontal = Input.GetAxis ("Mouse X");
-            float rotateVertical = Input.GetAxis ("Mouse Y");
+            float rotateHorizontal = Input.GetAxis ("Mouse Y");
+            float rotateVertical = Input.GetAxis ("Mouse X");
 
-            rotZ = rotateHorizontal * camSensMouse * mult;
+            rotX = rotateHorizontal * camSensMouse * mult * invX;
             rotY = rotateVertical * camSensMouse * mult;
+            auv.transform.Rotate(rotX,rotY,0.0f);
+
+            //Lock Z axis rotation
+            rotZ = auv.transform.eulerAngles.z;
+            auv.transform.Rotate(0,0,-rotZ);
         }
 
-        auv.transform.Rotate(rotY,rotZ,0.0f);
+
 
         //Keyboard commands
         if (Input.GetKey (KeyCode.D)){
@@ -61,5 +70,13 @@ public class Camera_controller : MonoBehaviour {
         if (Input.GetKey (KeyCode.Q)){
             auv.transform.Translate(new Vector3(0,-camSens * Time.deltaTime * 0.1f * mult,0));
         }
+
     }
+
+    public void ToggleInversionX () {
+        Debug.Log("Toggle inversion X");
+        if (vueInverseeX.GetComponent<Toggle>().isOn) {invX = 1;}
+        else {invX = -1;}
+    }
+
 }
