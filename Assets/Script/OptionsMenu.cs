@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public GameObject DropdownQuality = null;
+    public TMPro.TMP_Dropdown dropdownQuality = null;
 
     private void OnEnable()
     {
-        // TODO : Actualiser DropDown avec la qualité actuelle
+        dropdownQuality.value = QualitySettings.GetQualityLevel();
     }
     public void SetQuality(int qualityIndex) 
     {

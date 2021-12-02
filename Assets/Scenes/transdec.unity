@@ -8489,6 +8489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393d201c290a2032eadeb526c6d02873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flyCam: {fileID: 0}
   auv: {fileID: 827693727}
   vueInverseeX: {fileID: 1633683828}
 --- !u!114 &827693732
@@ -9159,6 +9160,11 @@ MonoBehaviour:
   toggleFront: f6
   toggleBottom: f7
   toggleFlyCam: v
+  front: {fileID: 2032373251304163545}
+  bottom: {fileID: 6276189801202068245}
+  flyCam: {fileID: 827693727}
+  mainMenu: {fileID: 1056333159}
+  optionsMenu: {fileID: 2139318889}
 --- !u!4 &907423517
 Transform:
   m_ObjectHideFlags: 0
@@ -10224,7 +10230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1056333160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10237,8 +10243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc9ebabcb57b4e489c509ff6966f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropdownTarget: {fileID: 492710513}
-  DropdownScene: {fileID: 2014339567}
+  dropdownTarget: {fileID: 492710513}
+  dropdownScene: {fileID: 2014339567}
+  mainMenu: {fileID: 1056333159}
 --- !u!224 &1056333161
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13093,7 +13100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acef0b79454c9b4dae3f8139bc4ba77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RosIPAddress: 127.0.0.1
+  m_RosIPAddress: localhost
   m_RosPort: 10000
   m_ConnectOnStart: 1
   m_KeepaliveTime: 1
@@ -19241,7 +19248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2139318890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19282,7 +19289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1fc3a8ce64e00749a7766fb85220ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropdownQuality: {fileID: 0}
+  dropdownQuality: {fileID: 1508321893}
 --- !u!1 &2140185856
 GameObject:
   m_ObjectHideFlags: 0
@@ -77208,14 +77215,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6276189801202068245}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0.185, z: 0.285}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5055531498053879876}
   m_Father: {fileID: 8761042471800522941}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!23 &5757632569535181953
 MeshRenderer:
   m_ObjectHideFlags: 0

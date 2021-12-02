@@ -7,12 +7,13 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    public TMP_Dropdown DropdownTarget;
-    public TMP_Dropdown DropdownScene;
+    public TMP_Dropdown dropdownTarget;
+    public TMP_Dropdown dropdownScene;
+    public GameObject mainMenu;
 
     public void StartGame()
     {
-        SceneManager.LoadScene(DropdownScene.value + 1);
+        SceneManager.LoadScene(dropdownScene.value + 1);
     }
 
     public void QuitGame()
@@ -22,6 +23,8 @@ public class MainMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        GameObject.Find("MainMenu").SetActive(false);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.LoadScene(dropdownScene.value + 1);
+        mainMenu.SetActive(false);
     }
 }
