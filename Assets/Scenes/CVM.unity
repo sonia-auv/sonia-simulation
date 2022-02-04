@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657767, g: 0.4964127, b: 0.57481843, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -60338,7 +60338,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
@@ -84275,7 +84275,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 1
   m_Antialiasing: 0
@@ -94424,7 +94424,7 @@ GameObject:
   - component: {fileID: 8351709726923620329}
   - component: {fileID: 717141599298251118}
   - component: {fileID: 6164174903614937000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94473,7 +94473,7 @@ GameObject:
   - component: {fileID: 5010499346000107179}
   - component: {fileID: 6735673155275193695}
   - component: {fileID: 2084092410879057761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94702,7 +94702,7 @@ GameObject:
   - component: {fileID: 2448318593221291967}
   - component: {fileID: 3292949070692148606}
   - component: {fileID: 8001926162450420858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94887,7 +94887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 207546056000830857}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CP-81003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94921,7 +94921,7 @@ GameObject:
   - component: {fileID: 9051476919176933551}
   - component: {fileID: 5852627105081049454}
   - component: {fileID: 7165410949790726926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94961,7 +94961,7 @@ GameObject:
   - component: {fileID: 7837441522089860536}
   - component: {fileID: 8989326084954903052}
   - component: {fileID: 9109648882517209698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95182,7 +95182,7 @@ GameObject:
   - component: {fileID: 9030136237259998688}
   - component: {fileID: 2843255686149297374}
   - component: {fileID: 7029332169190133028}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95445,7 +95445,7 @@ Transform:
   m_GameObject: {fileID: 9040753435609927621}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.67}
   m_Children:
   - {fileID: 207546056000830857}
   m_Father: {fileID: 923161025}
@@ -95462,7 +95462,7 @@ GameObject:
   - component: {fileID: 7921640528034357453}
   - component: {fileID: 4078670779578439790}
   - component: {fileID: 7693752518233559125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95528,7 +95528,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8519937436008863103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CP-81003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
