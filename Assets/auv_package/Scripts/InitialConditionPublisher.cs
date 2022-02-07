@@ -47,8 +47,6 @@ public class InitialConditionPublisher : MonoBehaviour
 
     public void publishInitialCondition()
     {
-        
-        
         // Get AUV pose from unity
         UnityEngine.Vector3 msgPos = new UnityEngine.Vector3(auv.transform.position.x, auv.transform.position.y, auv.transform.position.z);
         UnityEngine.Quaternion msgRot = new UnityEngine.Quaternion(auv.transform.rotation.x,auv.transform.rotation.y,auv.transform.rotation.z,auv.transform.rotation.w);

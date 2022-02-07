@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
  
 public class Camera_controller : MonoBehaviour {
      
     float camSens = 10.0f; //How sensitive
+    float camSensMouse = 2.0f; //How sensitive
+    float mult = 1.0f; 
     private Quaternion localRotation = new Quaternion(0.0f,0.0f,0.0f,1.0f);
-
+    public GameObject flyCam = null;
     public GameObject auv = null;
+    public GameObject vueInverseeX = null;
 
     private float rotY = 0.0f;
     private float rotX = 0.0f;
@@ -14,58 +18,65 @@ public class Camera_controller : MonoBehaviour {
     private float posX = 0.0f;
     private float posY = 0.0f;
     private float posZ = 0.0f;
+
+    private int invX = -1;
+
      
 
     private void OnEnable() {
-        posX = auv.transform.position.x;
-        posY = auv.transform.position.y;
-        posZ = auv.transform.position.z;
-        rotX = auv.transform.rotation.x;
-        rotY = auv.transform.rotation.y;
-        rotZ = auv.transform.rotation.z;
-    }
-    void Update () {
+        flyCam.transform.position = auv.transform.position;
+        flyCam.transform.Translate(new Vector3(0,0,-1));
 
-        if(Input.GetKey(KeyCode.E)) {
-            rotY += Time.deltaTime * camSens;
+        flyCam.transform.rotation = auv.transform.rotation;
+        rotZ = flyCam.transform.eulerAngles.z;
+        flyCam.transform.Rotate(0,0,-rotZ);
+    }
+
+    void Update () {
+        //Change speed
+        if (Input.GetKey (KeyCode.LeftShift)){mult = 5.0f;}
+        else {mult = 1.0f;}
+
+        //Mouse commands
+        if (Input.GetMouseButton(1)) {
+            float rotateHorizontal = Input.GetAxis ("Mouse Y");
+            float rotateVertical = Input.GetAxis ("Mouse X");
+
+            rotX = rotateHorizontal * camSensMouse * mult * invX;
+            rotY = rotateVertical * camSensMouse * mult;
+            flyCam.transform.Rotate(rotX,rotY,0.0f);
+
+            //Lock Z axis rotation
+            rotZ = flyCam.transform.eulerAngles.z;
+            flyCam.transform.Rotate(0,0,-rotZ);
         }
-        if(Input.GetKey(KeyCode.Q)) {
-            rotY -= Time.deltaTime * camSens;
-        } 
-        if(Input.GetKey(KeyCode.F)) {
-            rotX += Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.R)) {
-            rotX -= Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.X)) {
-            rotZ += Time.deltaTime * camSens;
-        }
-        if(Input.GetKey(KeyCode.C)) {
-            rotZ -= Time.deltaTime * camSens;
-        }
-        localRotation = Quaternion.Euler(rotX,rotY, rotZ);
-        transform.rotation = localRotation;
-       
+
         //Keyboard commands
         if (Input.GetKey (KeyCode.D)){
-            posX += Time.deltaTime * 0.1f *camSens;
+            flyCam.transform.Translate(new Vector3(camSens * Time.deltaTime * 0.1f * mult,0,0));
         }
         if (Input.GetKey (KeyCode.A)){
-            posX -= Time.deltaTime * 0.1f *camSens;
+            flyCam.transform.Translate(new Vector3(-camSens * Time.deltaTime * 0.1f * mult,0,0));
         }
         if (Input.GetKey (KeyCode.S)){
-            posZ -= Time.deltaTime * 0.1f *camSens;
+            flyCam.transform.Translate(new Vector3(0,0,-camSens * Time.deltaTime * 0.1f * mult));
         }
         if (Input.GetKey (KeyCode.W)){
-            posZ += Time.deltaTime * 0.1f *camSens;
+            flyCam.transform.Translate(new Vector3(0,0,camSens * Time.deltaTime * 0.1f * mult));
         }
-        if (Input.GetKey (KeyCode.LeftShift)){
-            posY += Time.deltaTime * 0.1f *camSens;
+        if (Input.GetKey (KeyCode.E)){
+            flyCam.transform.Translate(new Vector3(0,camSens * Time.deltaTime * 0.1f * mult,0));
         }
-        if (Input.GetKey (KeyCode.LeftControl)){
-            posY -= Time.deltaTime * 0.1f *camSens;
+        if (Input.GetKey (KeyCode.Q)){
+            flyCam.transform.Translate(new Vector3(0,-camSens * Time.deltaTime * 0.1f * mult,0));
         }
-        transform.position = new Vector3(posX,posY,posZ);
+
     }
+
+    public void ToggleInversionX () {
+        Debug.Log("Toggle inversion X");
+        if (vueInverseeX.GetComponent<Toggle>().isOn) {invX = 1;}
+        else {invX = -1;}
+    }
+
 }
