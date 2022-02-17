@@ -2080,7 +2080,7 @@ GameObject:
   - component: {fileID: 213585395}
   - component: {fileID: 213585397}
   - component: {fileID: 213585396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3805,7 +3805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 402648868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CP-81003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4919,7 +4919,7 @@ GameObject:
   - component: {fileID: 475310400}
   - component: {fileID: 475310402}
   - component: {fileID: 475310401}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6065,7 +6065,7 @@ GameObject:
   - component: {fileID: 565005745}
   - component: {fileID: 565005747}
   - component: {fileID: 565005746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6177,7 +6177,7 @@ GameObject:
   - component: {fileID: 575258215}
   - component: {fileID: 575258217}
   - component: {fileID: 575258216}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9671,7 +9671,7 @@ GameObject:
   - component: {fileID: 814956905}
   - component: {fileID: 814956907}
   - component: {fileID: 814956906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13582,7 +13582,7 @@ GameObject:
   - component: {fileID: 1290146997}
   - component: {fileID: 1290146999}
   - component: {fileID: 1290146998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14578,7 +14578,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361636461}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CP-81003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14594,7 +14594,7 @@ Transform:
   m_GameObject: {fileID: 1361636460}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402648868}
   m_Father: {fileID: 8629720537994634403}
@@ -19740,7 +19740,7 @@ GameObject:
   - component: {fileID: 1893697259}
   - component: {fileID: 1893697261}
   - component: {fileID: 1893697260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68609,7 +68609,7 @@ Camera:
   m_Depth: -0.01
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 8400000, guid: dd65ccaabd54f3b6bbef419f8d897818, type: 2}
   m_TargetDisplay: 0
@@ -70096,7 +70096,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
@@ -94140,7 +94140,7 @@ Camera:
   m_Depth: -0.01
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 2
@@ -103892,7 +103892,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 63
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 8400000, guid: a0d51dddd8c146791ba875a93f94f82a, type: 2}
   m_TargetDisplay: 7
