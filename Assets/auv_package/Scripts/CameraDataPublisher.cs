@@ -33,10 +33,10 @@ public class CameraDataPublisher : MonoBehaviour
         ros.RegisterPublisher<ImageMsg>(bottomTopicName);
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
         PublishCameraData();
-        System.Threading.Thread.Sleep(100);
+        //System.Threading.Thread.Sleep(100);
 
         if (Input.GetKeyDown(frontStop))
         {
