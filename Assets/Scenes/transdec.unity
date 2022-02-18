@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 75
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1439,7 +1439,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162834965}
-  m_LocalRotation: {x: -0.04258614, y: 0.0087186275, z: 0.00037164224, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718687, z: 0.00037163854, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8761042471800522941}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 75
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1655,7 +1655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166736545}
   m_LocalRotation: {x: 0.042586144, y: -0.008718598, z: -0.00037164244, w: 0.99905473}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.00000037705823, y: 6.21557e-17, z: 0.000000875969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 493046249}
@@ -5754,7 +5754,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 75
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5775,8 +5775,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493046247}
-  m_LocalRotation: {x: 0.0077264076, y: 0.008726387, z: -0.00006743919, w: 0.99993205}
-  m_LocalPosition: {x: 0.0009895044, y: 0.20011741, z: 0.056708105}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718687, z: 0.00037163854, w: 0.99905473}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2116743675}
@@ -8704,7 +8704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683011191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.6, y: 0, z: 14.4}
+  m_LocalPosition: {x: 19.6, y: 0.2, z: 14.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1475629059}
@@ -10499,7 +10499,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 75
+    FieldOfView: 45
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -10520,7 +10520,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853478418}
-  m_LocalRotation: {x: -0.118456006, y: 0.008665099, z: 0.0010337483, w: 0.99292094}
+  m_LocalRotation: {x: -0.08382597, y: 0.008695873, z: 0.00073153555, w: 0.99644226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22144,7 +22144,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 75
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -22169,8 +22169,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066743508}
-  m_LocalRotation: {x: -0.0000000026979483, y: 0.97941846, z: -0.0000000027055969, w: -0.20184037}
-  m_LocalPosition: {x: 52.730743, y: -1.06, z: 11.617042}
+  m_LocalRotation: {x: 0.0000000027720464, y: 0.9794183, z: -5.71286e-10, w: -0.20184138}
+  m_LocalPosition: {x: 52.730747, y: -1.06, z: 11.61704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 166736547}
@@ -71005,7 +71005,7 @@ Camera:
   m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 0
+  m_AllowMSAA: 1
   m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -84118,9 +84118,9 @@ MonoBehaviour:
   m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
-  m_AllowXRRendering: 1
+  m_AllowXRRendering: 0
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -95043,7 +95043,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 62
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 2
