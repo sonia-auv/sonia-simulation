@@ -10242,7 +10242,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 3
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -10484,8 +10484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FreeCam: {fileID: 2066743508}
-  Front: {fileID: 0}
-  Bottom: {fileID: 0}
   FlyCam: {fileID: 827693727}
 --- !u!4 &839525482
 Transform:
