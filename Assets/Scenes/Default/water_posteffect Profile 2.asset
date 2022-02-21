@@ -228,8 +228,8 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   highQualityFiltering:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   skipIterations:
     m_OverrideState: 0
     m_Value: 1
@@ -377,7 +377,7 @@ MonoBehaviour:
     max: 100
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.23713954, g: 0.6886792, b: 0.66549885, a: 1}
+    m_Value: {r: 0.23529412, g: 0.6901961, b: 0.6666667, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -425,5 +425,5 @@ MonoBehaviour:
     min: 0.01
     max: 1
   rounded:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
