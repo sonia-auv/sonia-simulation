@@ -68,12 +68,34 @@ public class CameraDataPublisher : MonoBehaviour
         }
     }
 
+    private void FlipTextureVertically(Texture2D original)
+    {
+        var originalPixels = original.GetPixels();
+
+        var newPixels = new Color[originalPixels.Length];
+
+        var width = original.width;
+        var rows = original.height;
+
+        for (var x = 0; x < width; x++)
+        {
+            for (var y = 0; y < rows; y++)
+            {
+                newPixels[x + y * width] = originalPixels[x + (rows - y -1) * width];
+            }
+        }
+        original.SetPixels(newPixels);
+        original.Apply();
+    }
+
     private void PublishFront()
     {
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
         RenderTexture.active = frontRenderer.GetComponent<Camera>().targetTexture;
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
-        tex.Apply();
+        
+        // Flips the image
+        FlipTextureVertically(tex);
 
         HeaderMsg header = new HeaderMsg();
         ImageMsg cameraData = new ImageMsg (
@@ -97,7 +119,9 @@ public class CameraDataPublisher : MonoBehaviour
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
         RenderTexture.active = bottomRenderer.GetComponent<Camera>().targetTexture;
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
-        tex.Apply();
+        
+        // Flips the image
+        FlipTextureVertically(tex);
 
         HeaderMsg header = new HeaderMsg();
         ImageMsg cameraData = new ImageMsg (
