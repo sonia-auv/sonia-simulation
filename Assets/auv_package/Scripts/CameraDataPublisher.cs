@@ -9,77 +9,130 @@ using Unity.Robotics.ROSTCPConnector;
 public class CameraDataPublisher : MonoBehaviour
 {
     ROSConnection ros;
+    public UInt32 cameraFrameRate = 10; // hz
     public string frontTopicName = "front_simulation";
     public string bottomTopicName = "bottom_simulation";
     public UInt32 imageHeight = 720;
     public UInt32 imageWidth = 720;
     public string imageEncoding = "rgb8";
 
-    public string frontStop = "";
-    public string bottomStop = "";
+    public string frontStop ;
+    public string bottomStop ;
 
 
-    public GameObject frontRenderer;
-    public GameObject bottomRenderer;
+    public GameObject frontCamera;
+    public GameObject bottomCamera;
+    private GameObject frontRenderer;
+    private GameObject bottomRenderer;
     private UInt32 sequence;
-    private Boolean publishFront;
-    private Boolean publishBottom;
-
+    private double ts; // Cmera sample time
+    private DateTime dtk = DateTime.Now; // Time when last image is generate
+    private DateTime dt = DateTime.Now; // Current time
     void Start()
     {
         sequence = 0;
+        // Get render object
+        frontRenderer = frontCamera.transform.GetChild(0).gameObject;
+        bottomRenderer = bottomCamera.transform.GetChild(0).gameObject;
+
+        // Get camera sample time
+        ts = (1000.0/cameraFrameRate);
+
+        // Initialize ros subscribers
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<ImageMsg>(frontTopicName);
-        ros.RegisterPublisher<ImageMsg>(bottomTopicName);
+        ros.RegisterPublisher<ImageMsg>(bottomTopicName);   
+
+        // start cam publish thread
+        //Thread camPublish = new Thread(new ThreadStart( PublishCameraData));
+        //camPublish.Start();
     }
-
-    private void FixedUpdate() 
-    {
-        PublishCameraData();
-        //System.Threading.Thread.Sleep(100);
-
+    private void Update(){
+        
+        // update cam toggle in update method for better responsiveness
         if (Input.GetKeyDown(frontStop))
         {
-            publishFront = !publishFront;
+            changeCameraStatus(ref frontCamera);
         }
 
         if (Input.GetKeyDown(bottomStop))
         {
-            publishBottom = !publishBottom;
+             changeCameraStatus(ref bottomCamera);
+             
         }
     }
+    private void LateUpdate() 
+    {
+        PublishCameraData();
+    }
+    private void changeCameraStatus(ref GameObject cam){
 
+        if (cam.activeSelf)
+        {
+            cam.SetActive(false);
+        }
+        else
+        {
+            cam.SetActive(true);
+        }
+    }
     private void PublishCameraData()
     {
-        sequence = sequence + 1 ;
-        if (frontRenderer.activeSelf)
+        // compute elaspe time since last image generated
+        dt = DateTime.Now; 
+        TimeSpan elpase = dt - dtk;
+
+        // Check if its time to generate a new image.
+        if (elpase.TotalMilliseconds >= ts)
         {
-            if (publishFront) 
+            dtk = dt; // Update new time
+            sequence = sequence + 1 ;
+
+            if (frontCamera.activeSelf)
             {
-                PublishFront();
+                    Publish(ref frontRenderer,ref frontTopicName);
+                
             }
-        }
-        if (bottomRenderer.activeSelf)
-        {
-            if (publishBottom)
-            {
-                PublishBottom();
+            if (bottomCamera.activeSelf)
+            { 
+                    Publish(ref bottomRenderer,ref bottomTopicName);
             }
         }
     }
-
-    private void FlipTextureVertically(Texture2D original)
+    private void Publish(ref GameObject cam, ref string topic)
     {
-        var originalPixels = original.GetPixels();
+        Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
+        RenderTexture.active = cam.GetComponent<Camera>().targetTexture;
+        tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
+        
+        // Flips the image
+        FlipTextureVertically(ref tex);
 
-        var newPixels = new Color[originalPixels.Length];
+        HeaderMsg header = new HeaderMsg();
+        ImageMsg cameraData = new ImageMsg (
+                                            header,
+                                            imageHeight,
+                                            imageWidth,
+                                            imageEncoding,
+                                            0,
+                                            3 * imageWidth,
+                                            tex.GetRawTextureData()
+                                            );
 
-        var width = original.width;
-        var rows = original.height;
+        ros.Send(topic, cameraData);
+        Destroy(tex);
+    }
+    private void FlipTextureVertically(ref Texture2D original)
+    {
+        Color[] originalPixels = original.GetPixels();
+        Color[] newPixels = new Color[originalPixels.Length];
 
-        for (var x = 0; x < width; x++)
+        int width = original.width;
+        int rows = original.height;
+
+        for (int x = 0; x < width; ++x)
         {
-            for (var y = 0; y < rows; y++)
+            for (int y = 0; y < rows; ++y)
             {
                 newPixels[x + y * width] = originalPixels[x + (rows - y -1) * width];
             }
@@ -88,55 +141,5 @@ public class CameraDataPublisher : MonoBehaviour
         original.Apply();
     }
 
-    private void PublishFront()
-    {
-        Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
-        RenderTexture.active = frontRenderer.GetComponent<Camera>().targetTexture;
-        tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
-        
-        // Flips the image
-        FlipTextureVertically(tex);
-
-        HeaderMsg header = new HeaderMsg();
-        ImageMsg cameraData = new ImageMsg (
-        header,
-        imageHeight,
-        imageWidth,
-        imageEncoding,
-        0,
-        3 * imageWidth,
-        tex.GetRawTextureData()
-        );
-
-        ros.Send(frontTopicName, cameraData);
-
-        Destroy(tex);
-    }
-
-    private void PublishBottom()
-    {
-
-        Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
-        RenderTexture.active = bottomRenderer.GetComponent<Camera>().targetTexture;
-        tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
-        
-        // Flips the image
-        FlipTextureVertically(tex);
-
-        HeaderMsg header = new HeaderMsg();
-        ImageMsg cameraData = new ImageMsg (
-        header,
-        imageHeight,
-        imageWidth,
-        imageEncoding,
-        0,
-        3 * imageWidth,
-        tex.GetRawTextureData()
-        );
-
-        ros.Send(bottomTopicName, cameraData);
-
-        Destroy(tex);
-
-    }
+  
 }

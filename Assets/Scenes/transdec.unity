@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657665, g: 0.49641156, b: 0.5748182, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657755, g: 0.4964127, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 30
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1449,7 +1449,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0363984, y: 1}
+    m_SensorSize: {x: 2.088015, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1465,7 +1465,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162834965}
-  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164244, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718508, z: 0.00037164657, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_Follow: {fileID: 8761042471800522941}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 30
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1605,7 +1605,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0363984, y: 1}
+    m_SensorSize: {x: 2.088015, y: 1}
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 0
@@ -5863,7 +5863,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 30
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -5871,7 +5871,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0363984, y: 1}
+    m_SensorSize: {x: 2.088015, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5887,7 +5887,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493046247}
-  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164244, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718508, z: 0.00037164657, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10911,7 +10911,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 30
+    FieldOfView: 65
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -10919,7 +10919,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0363984, y: 1}
+    m_SensorSize: {x: 2.088015, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10935,7 +10935,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853478418}
-  m_LocalRotation: {x: -0.0693117, y: 0.008705585, z: 0.00060487346, w: 0.99755687}
+  m_LocalRotation: {x: -0.10576406, y: 0.008677506, z: 0.00092298933, w: 0.99435294}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15859,7 +15859,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1408107641
 MonoBehaviour:
@@ -15916,6 +15916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76d88ad6c32b7a64833225fc8272c20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraFrameRate: 20
   frontTopicName: front_simulation
   bottomTopicName: bottom_simulation
   imageHeight: 720
@@ -15923,8 +15924,8 @@ MonoBehaviour:
   imageEncoding: rgb8
   frontStop: f6
   bottomStop: f7
-  frontRenderer: {fileID: 6317030564818346409}
-  bottomRenderer: {fileID: 2013275586416403032}
+  frontCamera: {fileID: 2032373251304163545}
+  bottomCamera: {fileID: 6276189801202068245}
 --- !u!114 &1408107645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15969,7 +15970,6 @@ MonoBehaviour:
   - {fileID: 1962381267511946409}
   - {fileID: 5436701496248764290}
   topicName: /proc_simulation/thruster_rpm
-  rpm: 0000
 --- !u!1 &1408926972
 GameObject:
   m_ObjectHideFlags: 0
@@ -23054,7 +23054,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 30
+  field of view: 65
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -23079,8 +23079,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066743508}
-  m_LocalRotation: {x: 6.8486852e-12, y: -0.6745708, z: -7.489526e-12, w: 0.7382102}
-  m_LocalPosition: {x: 52.988903, y: -0.26999992, z: 21.908182}
+  m_LocalRotation: {x: 2.1953805e-10, y: -0.67457104, z: -2.4024915e-10, w: 0.7382099}
+  m_LocalPosition: {x: 52.988903, y: -0.26999992, z: 21.908184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
