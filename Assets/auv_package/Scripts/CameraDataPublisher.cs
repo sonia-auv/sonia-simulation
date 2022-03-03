@@ -38,7 +38,7 @@ public class CameraDataPublisher : MonoBehaviour
         // Get camera sample time
         ts = (1000.0/cameraFrameRate);
 
-        // Initialize ros subscribers
+        // Initialize ros publisher
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<ImageMsg>(frontTopicName);
         ros.RegisterPublisher<ImageMsg>(bottomTopicName);   
