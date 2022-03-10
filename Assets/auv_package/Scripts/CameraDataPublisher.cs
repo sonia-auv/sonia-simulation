@@ -9,12 +9,12 @@ using Unity.Robotics.ROSTCPConnector;
 public class CameraDataPublisher : MonoBehaviour
 {
     ROSConnection ros;
-    public UInt32 cameraFrameRate = 10; // hz
-    public string frontTopicName = "front_simulation";
-    public string bottomTopicName = "bottom_simulation";
-    public UInt32 imageHeight = 720;
-    public UInt32 imageWidth = 720;
-    public string imageEncoding = "rgb8";
+    public UInt32 cameraFrameRate;
+    public string frontTopicName;
+    public string bottomTopicName;
+    public UInt32 imageHeight;
+    public UInt32 imageWidth;
+    public string imageEncoding;
 
     public string frontStop ;
     public string bottomStop ;
@@ -42,10 +42,6 @@ public class CameraDataPublisher : MonoBehaviour
         ros = ROSConnection.GetOrCreateInstance();
         ros.RegisterPublisher<ImageMsg>(frontTopicName);
         ros.RegisterPublisher<ImageMsg>(bottomTopicName);   
-
-        // start cam publish thread
-        //Thread camPublish = new Thread(new ThreadStart( PublishCameraData));
-        //camPublish.Start();
     }
     private void Update(){
         
@@ -78,12 +74,12 @@ public class CameraDataPublisher : MonoBehaviour
     }
     private void PublishCameraData()
     {
-        // compute elaspe time since last image generated
+        // compute elapsed time since last image generated
         dt = DateTime.Now; 
-        TimeSpan elpase = dt - dtk;
+        TimeSpan elapse = dt - dtk;
 
         // Check if its time to generate a new image.
-        if (elpase.TotalMilliseconds >= ts)
+        if (elapse.TotalMilliseconds >= ts)
         {
             dtk = dt; // Update new time
             sequence = sequence + 1 ;
