@@ -10935,7 +10935,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853478418}
-  m_LocalRotation: {x: -0.10576405, y: 0.008677506, z: 0.0009229893, w: 0.99435294}
+  m_LocalRotation: {x: -0.10576406, y: 0.008677506, z: 0.00092298933, w: 0.99435294}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15917,10 +15917,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraFrameRate: 10
-  frontTopicName: proc_simulation/front_raw
-  bottomTopicName: proc_simulation/bottom_raw
-  imageHeight: 720
-  imageWidth: 720
+  rawFrontTopicName: /proc_simulation/front
+  compressedFrontTopicName: /proc_simulation/front/compressed
+  rawBottomTopicName: /proc_simulation/bottom
+  compressedBottomTopicName: /proc_simulation/bottom/compressed
+  imageHeight: 400
+  imageWidth: 600
   imageEncoding: rgb8
   frontStop: f6
   bottomStop: f7
@@ -71680,7 +71682,7 @@ Camera:
     m_Bits: 63
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 8400000, guid: dd65ccaabd54f3b6bbef419f8d897818, type: 2}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
@@ -73205,8 +73207,8 @@ Camera:
     serializedVersion: 2
     m_Bits: 63
   m_RenderingPath: 3
-  m_TargetTexture: {fileID: 8400000, guid: a0d51dddd8c146791ba875a93f94f82a, type: 2}
-  m_TargetDisplay: 1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -97866,8 +97868,8 @@ Camera:
     serializedVersion: 2
     m_Bits: 63
   m_RenderingPath: 3
-  m_TargetTexture: {fileID: 8400000, guid: dd65ccaabd54f3b6bbef419f8d897818, type: 2}
-  m_TargetDisplay: 2
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0
@@ -107865,7 +107867,7 @@ Camera:
     m_Bits: 63
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 8400000, guid: a0d51dddd8c146791ba875a93f94f82a, type: 2}
-  m_TargetDisplay: 7
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 0

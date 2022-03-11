@@ -10,8 +10,10 @@ public class CameraDataPublisher : MonoBehaviour
 {
     ROSConnection ros;
     public UInt32 cameraFrameRate;
-    public string frontTopicName;
-    public string bottomTopicName;
+    public string rawFrontTopicName;
+    public string compressedFrontTopicName;
+    public string rawBottomTopicName;
+    public string compressedBottomTopicName;
     public UInt32 imageHeight;
     public UInt32 imageWidth;
     public string imageEncoding;
@@ -40,8 +42,10 @@ public class CameraDataPublisher : MonoBehaviour
 
         // Initialize ros publisher
         ros = ROSConnection.GetOrCreateInstance();
-        ros.RegisterPublisher<ImageMsg>(frontTopicName);
-        ros.RegisterPublisher<ImageMsg>(bottomTopicName);   
+        ros.RegisterPublisher<ImageMsg>(rawFrontTopicName);
+        ros.RegisterPublisher<CompressedImageMsg>(compressedFrontTopicName);
+        ros.RegisterPublisher<ImageMsg>(rawBottomTopicName);   
+        ros.RegisterPublisher<CompressedImageMsg>(compressedBottomTopicName);   
     }
     private void Update(){
         
@@ -86,38 +90,46 @@ public class CameraDataPublisher : MonoBehaviour
 
             if (frontCamera.activeSelf)
             {
-                    Publish(ref frontRenderer,ref frontTopicName);
-                
+                    Publish(ref frontRenderer,ref rawFrontTopicName,ref compressedFrontTopicName);
             }
             if (bottomCamera.activeSelf)
             { 
-                    Publish(ref bottomRenderer,ref bottomTopicName);
+                    Publish(ref bottomRenderer,ref rawBottomTopicName,ref compressedBottomTopicName);
             }
         }
     }
-    private void Publish(ref GameObject cam, ref string topic)
+    private void Publish(ref GameObject cam, ref string rawTopic, ref string compressedTopic)
     {
         Texture2D tex = new Texture2D((int)imageHeight,(int)imageWidth,TextureFormat.RGB24, false);
         RenderTexture.active = cam.GetComponent<Camera>().targetTexture;
+        tex.Reinitialize((int)imageWidth,(int)imageHeight,TextureFormat.RGB24,false);
+        tex.Apply();
         tex.ReadPixels(new Rect(0, 0, imageWidth, imageHeight), 0, 0);
-        
+        tex.Apply();
+
+        HeaderMsg header = new HeaderMsg();
+
+        byte[] imageBytes = tex.EncodeToJPG();
+        var message = new CompressedImageMsg(header, "png", imageBytes);
+        ros.Send(compressedTopic, message);
+
         // Flips the image
         FlipTextureVertically(ref tex);
 
-        HeaderMsg header = new HeaderMsg();
         ImageMsg cameraData = new ImageMsg (
                                             header,
                                             imageHeight,
                                             imageWidth,
                                             imageEncoding,
                                             0,
-                                            3 * imageWidth,
+                                            1800, // step, had to put in hard as the operation needs a float
                                             tex.GetRawTextureData()
                                             );
 
-        ros.Send(topic, cameraData);
+        ros.Send(rawTopic, cameraData);
         Destroy(tex);
     }
+    
     private void FlipTextureVertically(ref Texture2D original)
     {
         Color[] originalPixels = original.GetPixels();
