@@ -10,10 +10,11 @@ public class RotateThrusters : MonoBehaviour
    
     public GameObject[] propellers;
     
-    DateTime dt = DateTime.Now;
-    DateTime dtk = DateTime.Now;
+    
     public string topicName = "/proc_simulation/thruster_rpm";
-    public short[] rpm = {0};
+    private DateTime dt = DateTime.Now;
+    private DateTime dtk = DateTime.Now;
+    private short[] rpm = {0};
     
     // Start is called before the first frame update
     void Start()

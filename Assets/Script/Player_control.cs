@@ -18,16 +18,16 @@ public class Player_control : MonoBehaviour
     {
         if (Input.GetKeyDown(toggleFront))
         {
-            ToggleFront();
+           /* ToggleFront();
             UpdateDisplay();
-            Debug.Log("ToggleFront");
+            Debug.Log("ToggleFront");*/
         }
 
         if (Input.GetKeyDown(toggleBottom))
         {
-            ToggleBottom();
+            /*ToggleBottom();
             UpdateDisplay();
-            Debug.Log("ToggleBottom");
+            Debug.Log("ToggleBottom");*/
         }
 
         if (Input.GetKeyDown(toggleFlyCam))
@@ -45,26 +45,26 @@ public class Player_control : MonoBehaviour
 
     private void ToggleFront()
     {
-        if (front.activeSelf)
+       /* if (front.activeSelf)
         {
             front.SetActive(false);
         }
         else
         {
             front.SetActive(true);
-        }
+        }*/
     }
 
     private void ToggleBottom()
     {
-        if (bottom.activeSelf)
+        /*if (bottom.activeSelf)
         {
             bottom.SetActive(false);
         }
         else
         {
             bottom.SetActive(true);
-        }
+        }*/
     }
 
     private void ToggleFlyCam()
