@@ -53,5 +53,13 @@
         "temp/":true,
         "Temp/":true
     },
-    "cmake.sourceDirectory": "${workspaceFolder}/Assets/auv_package"
+    "cmake.sourceDirectory": "${workspaceFolder}/Assets/auv_package",
+    "python.autoComplete.extraPaths": [
+        "/home/willy/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/willy/catkin_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
 }
