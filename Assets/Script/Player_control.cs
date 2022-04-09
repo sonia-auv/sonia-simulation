@@ -4,9 +4,9 @@ using System.Collections;
 
 public class Player_control : MonoBehaviour
 {
-    public string toggleFront = "";
-    public string toggleBottom = "";
-    public string toggleFlyCam = "";
+    private string toggleFront = "f6";
+    private string toggleBottom = "f7";
+    private string toggleFlyCam = "v";
 
     public GameObject front = null;
     public GameObject bottom = null;
