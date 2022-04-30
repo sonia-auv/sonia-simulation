@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: def212d9eefe3d54c821e8af3fa267f0
   - enabled: 1
-    path: Assets/Scenes/Transdec.unity
+    path: Assets/Scenes/transdec.unity
     guid: 03de314c73b773fe5ba07b8aa8214852
   - enabled: 1
     path: Assets/Scenes/CVM.unity
     guid: ff5cc4a69d6e13d43aa0357fd8ca82cc
+  - enabled: 1
+    path: Assets/Scenes/Maryland.unity
+    guid: 4ef24092670e7ea4494811158bd38bcf
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 721670eb2a3267847be01bc994b4b060, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 315da1480e654c74e88ba3e04760dc1f, type: 2}
