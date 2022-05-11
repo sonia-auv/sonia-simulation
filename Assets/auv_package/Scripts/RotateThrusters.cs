@@ -11,7 +11,7 @@ public class RotateThrusters : MonoBehaviour
     public GameObject[] propellers;
     
     
-    public string topicName = "/proc_simulation/thruster_rpm";
+    private string topicName = "/proc_simulation/thruster_rpm";
     private DateTime dt = DateTime.Now;
     private DateTime dtk = DateTime.Now;
     private short[] rpm = {0};

@@ -9,25 +9,24 @@ using Unity.Robotics.ROSTCPConnector;
 public class CameraDataPublisher : MonoBehaviour
 {
     ROSConnection ros;
-    public UInt32 cameraFrameRate;
-    public string rawFrontTopicName;
-    public string compressedFrontTopicName;
-    public string rawBottomTopicName;
-    public string compressedBottomTopicName;
-    public UInt32 imageHeight;
-    public UInt32 imageWidth;
-    public string imageEncoding;
-
-    public string frontStop ;
-    public string bottomStop ;
-
-
     public GameObject frontCamera;
     public GameObject bottomCamera;
+
+    private UInt32 cameraFrameRate = 10; //Hz
+    private string rawFrontTopicName = "/proc_simulation/front";
+    private string compressedFrontTopicName = "/proc_simulation/front/compressed";
+    private string rawBottomTopicName = "/proc_simulation/bottom";
+    private string compressedBottomTopicName = "/proc_simulation/bottom/compressed";
+    private UInt32 imageHeight = 400;
+    private UInt32 imageWidth = 600;
+    private string imageEncoding = "rgb8";
+    private string frontStop = "f6";
+    private string bottomStop = "f7";
+
     private GameObject frontRenderer;
     private GameObject bottomRenderer;
     private UInt32 sequence;
-    private double ts; // Cmera sample time
+    private double ts; // Camera sample time
     private DateTime dtk = DateTime.Now; // Time when last image is generate
     private DateTime dt = DateTime.Now; // Current time
     void Start()

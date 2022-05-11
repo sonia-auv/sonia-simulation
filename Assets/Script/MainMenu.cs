@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void ResumeGame()
     {
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneManager.UnloadScene(SceneManager.GetActiveScene());
         SceneManager.LoadScene(dropdownScene.value + 1);
         mainMenu.SetActive(false);
     }
