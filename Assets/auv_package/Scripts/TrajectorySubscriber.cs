@@ -40,7 +40,7 @@ public class TrajectorySubscriber : MonoBehaviour
         // Get message Info
         int length = trajectoryMessage.transforms.Length;
 
-        for (int i = 0; i <= length; i = i+10) 
+        for (int i = 0; i <= length; i = i+10) 
         {
             //Vector3 msgPos = new Vector3((float)initialPose.position.y + (float)trajectoryMessage.transforms[i].translation.y, -(float)trajectoryMessage.transforms[i].translation.z, (float)initialPose.position.x + (float)trajectoryMessage.transforms[i].translation.x);
             Vector3 msgPos = new Vector3((float)trajectoryMessage.transforms[i].translation.y, -(float)trajectoryMessage.transforms[i].translation.z, (float)trajectoryMessage.transforms[i].translation.x);

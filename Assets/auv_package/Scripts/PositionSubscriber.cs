@@ -1,27 +1,28 @@
 using System.Threading;
 using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
-//using RosPos = RosMessageTypes.Geometry.PoseMsg;
-using RosPos = RosMessageTypes.Nav.OdometryMsg;
+using TrueRosPos = RosMessageTypes.Geometry.PoseMsg;
+using EstimatedRosPos = RosMessageTypes.Nav.OdometryMsg;
 
 public class PositionSubscriber : MonoBehaviour
 {
     public GameObject auv;
-    //public string topicName = "/pos_rot";
-    private string topicName = "/telemetry/auv_states";
+    public string trueStateTopicName = "/proc_simulation/true_states";
+    private string estimatedTopicName = "/telemetry/auv_states";
     
+    private 
 
     void Start()
     {
-        //ROSConnection.GetOrCreateInstance().Subscribe<RosPos>(topicName,PositionChange);
-        ROSConnection.GetOrCreateInstance().Subscribe<RosPos>(topicName,PositionChange);
+        ROSConnection.GetOrCreateInstance().Subscribe<TrueRosPos>(trueStateTopicName,TruePositionChange);
+        ROSConnection.GetOrCreateInstance().Subscribe<EstimatedRosPos>(estimatedTopicName,EstimatedPositionChange);
+
+
     }   
 
-    void PositionChange(RosPos positionMessage)
+    void EstimatedPositionChange(EstimatedRosPos positionMessage)
     {
         // Get message Info
-        //Vector3 msgPos = new Vector3((float)positionMessage.position.y, -(float)positionMessage.position.z, (float)positionMessage.position.x);
-        //Quaternion msgRot = new Quaternion(-(float)positionMessage.orientation.y,(float)positionMessage.orientation.z,(float)positionMessage.orientation.x,(float)positionMessage.orientation.w);
         Vector3 msgPos = new Vector3((float)positionMessage.pose.pose.position.y, -(float)positionMessage.pose.pose.position.z, (float)positionMessage.pose.pose.position.x);
         Quaternion msgRot = Quaternion.Euler(-(float)positionMessage.pose.pose.orientation.y, (float)positionMessage.pose.pose.orientation.z, -(float)positionMessage.pose.pose.orientation.x);
         
@@ -31,7 +32,16 @@ public class PositionSubscriber : MonoBehaviour
         
         auv.transform.position = msgPos;
         auv.transform.rotation = msgRot;
+    }
+
+    void TruePositionChange(TrueRosPos positionMessage)
+    {
+        // Get message Info
+        Vector3 msgPos = new Vector3((float)positionMessage.position.y, -(float)positionMessage.position.z, (float)positionMessage.position.x);
+        Quaternion msgRot = new Quaternion(-(float)positionMessage.orientation.y,(float)positionMessage.orientation.z,(float)positionMessage.orientation.x,(float)positionMessage.orientation.w);
         
+        auv.transform.position = msgPos;
+        auv.transform.rotation = msgRot;
     }
          
 }
