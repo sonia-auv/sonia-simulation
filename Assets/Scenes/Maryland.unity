@@ -13260,7 +13260,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261449979}
-  m_LocalRotation: {x: -0.0000000027205702, y: 0.89809406, z: 0.000000001332284, w: -0.43980348}
+  m_LocalRotation: {x: -0.0000000027446088, y: 0.89809406, z: 0.0000000013440559, w: -0.43980348}
   m_LocalPosition: {x: 4.7799397, y: -1.54, z: 20.866291}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18633,7 +18633,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8386389, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 0
@@ -52955,7 +52955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034528476}
-  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164547, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.0003716455, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53000,7 +53000,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8386389, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -64205,7 +64205,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270777784}
-  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164547, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.0003716455, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -64250,7 +64250,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8386389, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -100013,7 +100013,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964828839}
-  m_LocalRotation: {x: -0.10576405, y: 0.008677625, z: 0.00092299056, w: 0.99435294}
+  m_LocalRotation: {x: -0.10576406, y: 0.008677595, z: 0.00092298444, w: 0.99435294}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -100058,7 +100058,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8386389, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -109153,7 +109153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 649800548346528514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bin G-Men
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109207,7 +109207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393999111323525489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FP-30701
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109649,7 +109649,7 @@ GameObject:
   - component: {fileID: 1721932931160810759}
   - component: {fileID: 2655271385699429416}
   - component: {fileID: 6030760193714512512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109792,7 +109792,7 @@ GameObject:
   - component: {fileID: 3801835207581716703}
   - component: {fileID: 1648656574607335335}
   - component: {fileID: 2545285929621918995}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109881,7 +109881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2402049013026709421}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FP-30701
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110027,7 +110027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3253429500008365534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bin Bootlegger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110243,7 +110243,7 @@ GameObject:
   - component: {fileID: 3731098304573463515}
   - component: {fileID: 70761831195824884}
   - component: {fileID: 8616405003275443292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110657,7 +110657,7 @@ GameObject:
   - component: {fileID: 1216211837883887107}
   - component: {fileID: 3657831815934108027}
   - component: {fileID: 536107379492711375}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
