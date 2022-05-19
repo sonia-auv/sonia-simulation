@@ -3,7 +3,6 @@ using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using MultiTrajectoryPoses = RosMessageTypes.Trajectory.MultiDOFJointTrajectoryPointMsg;
 using SingleWaypoint = RosMessageTypes.SoniaCommon.AddPoseMsg;
-//using InitialPose = RosMessageTypes.Geometry.PoseMsg; 
 using Point = RosMessageTypes.Geometry.PointMsg;
 using Orient = RosMessageTypes.Geometry.QuaternionMsg;
 
@@ -14,22 +13,13 @@ public class TrajectorySubscriber : MonoBehaviour
     public GameObject auv;
     private string trajectoryTopicName = "/proc_planner/send_trajectory_list";
     private string singleTopicName = "/proc_control/add_pose";
-    //private string initialConditionTopicName = "/proc_simulation/start_simulation";
-    //private InitialPose initialPose;
     
 
     void Start()
     {
         ROSConnection.GetOrCreateInstance().Subscribe<MultiTrajectoryPoses>(trajectoryTopicName,MultiTrajectory);
         ROSConnection.GetOrCreateInstance().Subscribe<SingleWaypoint>(singleTopicName,SingleTrajectory);
-        //initialPose = new InitialPose(new Point(0,0,0),new Orient(0,0,0,0));
-
     } 
-
-    // void GetInitialPose(InitialPose pose)
-    // {
-    //     initialPose = pose;
-    // }
 
     void MultiTrajectory(MultiTrajectoryPoses trajectoryMessage)
     {
@@ -41,9 +31,9 @@ public class TrajectorySubscriber : MonoBehaviour
             Vector3 msgPos = new Vector3((float)singleTarget.transform.position.x + (float)trajectoryMessage.transforms[i].translation.y, -(float)trajectoryMessage.transforms[i].translation.z, (float)singleTarget.transform.position.z + (float)trajectoryMessage.transforms[i].translation.x);
             Quaternion msgRot = new Quaternion(-(float)trajectoryMessage.transforms[i].rotation.y, (float)trajectoryMessage.transforms[i].rotation.z, (float)trajectoryMessage.transforms[i].rotation.x, (float)trajectoryMessage.transforms[i].rotation.w);
 
-            msgRot.x = -msgRot.x;
-            msgRot.y = -msgRot.y;
-            msgRot.z = -msgRot.z;
+            // msgRot.x = -msgRot.x;
+            // msgRot.y = -msgRot.y;
+            // msgRot.z = -msgRot.z;
 
             // Rotation ne fonctionne pas bien
             GameObject targetClone = Instantiate(singleTarget, msgPos, singleTarget.transform.rotation * msgRot);
