@@ -96,7 +96,7 @@ public class SonarDataPublisher : MonoBehaviour
             {
                 Debug.DrawRay(Sonar.transform.position, ray.transform.forward * 1000, Color.red,1);
                 Debug.Log("Did not Hit");
-                ranges[index] = 20 + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f); // range max, mais avoir
+                ranges[index] = 20 + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f); // range max, mais a voir
             }
             ++index;
         }

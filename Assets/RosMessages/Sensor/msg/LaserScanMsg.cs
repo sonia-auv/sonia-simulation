@@ -73,7 +73,7 @@ namespace RosMessageTypes.Sensor
             this.scan_time = scan_time;
             this.range_min = range_min;
             this.range_max = range_max;
-            this.ranges = ranges;
+            this.ranges = ranges;   
             this.intensities = intensities;
         }
 

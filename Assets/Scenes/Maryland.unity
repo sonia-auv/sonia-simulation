@@ -13584,6 +13584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273902542}
+  - component: {fileID: 273902543}
   m_Layer: 7
   m_Name: Torpidoe Bootlegger
   m_TagString: Untagged
@@ -13617,6 +13618,19 @@ Transform:
   m_Father: {fileID: 853787754}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!65 &273902543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273902541}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04678944, y: 1.3024179, z: 0.6727895}
+  m_Center: {x: -0.017087245, y: -0.6344406, z: -0.0026689481}
 --- !u!1 &274136558
 GameObject:
   m_ObjectHideFlags: 0
@@ -18095,7 +18109,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.72257054, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 0
@@ -43780,6 +43794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857080349}
+  - component: {fileID: 857080350}
   m_Layer: 7
   m_Name: Buoy G-Men
   m_TagString: Untagged
@@ -43813,6 +43828,19 @@ Transform:
   m_Father: {fileID: 853787754}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -270.1, z: 0}
+--- !u!65 &857080350
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857080348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04678944, y: 1.3024179, z: 0.6727895}
+  m_Center: {x: -0.017087245, y: -0.6344406, z: -0.0026689481}
 --- !u!1 &858867010
 GameObject:
   m_ObjectHideFlags: 0
@@ -52055,7 +52083,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.72257054, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -63335,7 +63363,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.72257054, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -70626,6 +70654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1408379088}
+  - component: {fileID: 1408379089}
   m_Layer: 7
   m_Name: Torpidoe G-Men
   m_TagString: Untagged
@@ -70659,6 +70688,19 @@ Transform:
   m_Father: {fileID: 853787754}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!65 &1408379089
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408379087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04678944, y: 1.3024179, z: 0.6727895}
+  m_Center: {x: -0.017087245, y: -0.6344406, z: -0.0026689481}
 --- !u!1 &1411007394
 GameObject:
   m_ObjectHideFlags: 0
@@ -76429,6 +76471,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522030080}
+  - component: {fileID: 1522030082}
+  - component: {fileID: 1522030081}
+  - component: {fileID: 1522030083}
+  - component: {fileID: 1522030084}
   m_Layer: 7
   m_Name: gate
   m_TagString: Untagged
@@ -76458,6 +76504,62 @@ Transform:
   m_Father: {fileID: 853787754}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!136 &1522030081
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522030079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.04531585
+  m_Height: 1.6604584
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.8, z: -1.6}
+--- !u!136 &1522030082
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522030079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.04531585
+  m_Height: 1.6604584
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.7978547, z: 1.6010623}
+--- !u!136 &1522030083
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522030079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.055270538
+  m_Height: 3.2893193
+  m_Direction: 2
+  m_Center: {x: -2.997426e-15, y: 1.7229458e-12, z: 0.004140377}
+--- !u!136 &1522030084
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522030079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.033063672
+  m_Height: 0.6969902
+  m_Direction: 1
+  m_Center: {x: -1.959812e-10, y: -0.31367972, z: 0.37958536}
 --- !u!1 &1523100974
 GameObject:
   m_ObjectHideFlags: 0
@@ -99248,7 +99350,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.72257054, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -108073,6 +108175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 649800548346528514}
+  - component: {fileID: 649800548346528515}
   m_Layer: 0
   m_Name: Bin G-Men
   m_TagString: Untagged
@@ -108378,6 +108481,19 @@ Transform:
   m_Father: {fileID: 853787754}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &649800548346528515
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166455664237664696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.965415, y: 0.15125264, z: 0.62204605}
+  m_Center: {x: -0.0172925, y: -0.0022200572, z: -0.07598534}
 --- !u!1 &680349000088003971
 GameObject:
   m_ObjectHideFlags: 0
@@ -108947,6 +109063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3253429500008365534}
+  - component: {fileID: 3253429500008365535}
   m_Layer: 0
   m_Name: Bin Bootlegger
   m_TagString: Untagged
@@ -109020,6 +109137,19 @@ Transform:
   m_Father: {fileID: 853787754}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &3253429500008365535
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768957616262883172}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.965415, y: 0.15125264, z: 0.62204605}
+  m_Center: {x: -0.0172925, y: -0.0022200572, z: -0.07598534}
 --- !u!1 &3279751584373559278
 GameObject:
   m_ObjectHideFlags: 0
