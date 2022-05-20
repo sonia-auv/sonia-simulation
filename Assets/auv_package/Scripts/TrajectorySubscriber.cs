@@ -29,13 +29,8 @@ public class TrajectorySubscriber : MonoBehaviour
         for (int i = 0; i < length; i = i+10) 
         {
             Vector3 msgPos = new Vector3((float)singleTarget.transform.position.x + (float)trajectoryMessage.transforms[i].translation.y, -(float)trajectoryMessage.transforms[i].translation.z, (float)singleTarget.transform.position.z + (float)trajectoryMessage.transforms[i].translation.x);
-            Quaternion msgRot = new Quaternion(-(float)trajectoryMessage.transforms[i].rotation.y, (float)trajectoryMessage.transforms[i].rotation.z, (float)trajectoryMessage.transforms[i].rotation.x, (float)trajectoryMessage.transforms[i].rotation.w);
+            Quaternion msgRot = new Quaternion(-(float)trajectoryMessage.transforms[i].rotation.y, (float)trajectoryMessage.transforms[i].rotation.z, -(float)trajectoryMessage.transforms[i].rotation.x, (float)trajectoryMessage.transforms[i].rotation.w);
 
-            // msgRot.x = -msgRot.x;
-            // msgRot.y = -msgRot.y;
-            // msgRot.z = -msgRot.z;
-
-            // Rotation ne fonctionne pas bien
             GameObject targetClone = Instantiate(singleTarget, msgPos, singleTarget.transform.rotation * msgRot);
 
             Destroy(targetClone, 5+i/10);
@@ -55,33 +50,33 @@ public class TrajectorySubscriber : MonoBehaviour
         if(frame == 0)
         {
             msgPos = new Vector3((float)singleTarget.transform.position.x + (float)waypoint.position.y, -(float)waypoint.position.z, (float)singleTarget.transform.position.z + (float)waypoint.position.x);
-            msgRot.x = -msgRot.x;
-            msgRot.y = -msgRot.y;
-            msgRot.z = -msgRot.z;
+            // msgRot.x = -msgRot.x;
+            // msgRot.y = -msgRot.y;
+            // msgRot.z = -msgRot.z;
             msgRot = singleTarget.transform.rotation * msgRot;
         }
         else if(frame == 1)
         {
             msgPos = new Vector3((float)auv.transform.position.x + (float)waypoint.position.y, (float)auv.transform.position.y - (float)waypoint.position.z, (float)auv.transform.position.z + (float)waypoint.position.x);
-            msgRot.x = -msgRot.x;
-            msgRot.y = -msgRot.y;
-            msgRot.z = -msgRot.z;
+            // msgRot.x = -msgRot.x;
+            // msgRot.y = -msgRot.y;
+            // msgRot.z = -msgRot.z;
             msgRot = auv.transform.rotation * msgRot;
         }
         else if(frame == 2)
         {
             msgPos = new Vector3((float)auv.transform.position.x + (float)waypoint.position.y, (float)auv.transform.position.y - (float)waypoint.position.z, (float)auv.transform.position.z + (float)waypoint.position.x);
-            msgRot.x = -msgRot.x;
-            msgRot.y = -msgRot.y;
-            msgRot.z = -msgRot.z;
+            // msgRot.x = -msgRot.x;
+            // msgRot.y = -msgRot.y;
+            // msgRot.z = -msgRot.z;
             msgRot = singleTarget.transform.rotation * msgRot;
         }
         else if(frame == 3)
         {
             msgPos = new Vector3((float)singleTarget.transform.position.x + (float)waypoint.position.y, -(float)waypoint.position.z, (float)singleTarget.transform.position.z + (float)waypoint.position.x);
-            msgRot.x = -msgRot.x;
-            msgRot.y = -msgRot.y;
-            msgRot.z = -msgRot.z;
+            // msgRot.x = -msgRot.x;
+            // msgRot.y = -msgRot.y;
+            // msgRot.z = -msgRot.z;
             msgRot = auv.transform.rotation * msgRot;
         }
 
