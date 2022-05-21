@@ -41,7 +41,6 @@ public class TrajectorySubscriber : MonoBehaviour
 
     void SingleTrajectory(SingleWaypoint waypoint)
     {
-
         Vector3 msgPos = new Vector3((float)0, -(float)0, (float)0);
         Quaternion msgRot = Quaternion.Euler(-(float)waypoint.orientation.y, (float)waypoint.orientation.z, -(float)waypoint.orientation.x);
 
@@ -51,33 +50,21 @@ public class TrajectorySubscriber : MonoBehaviour
         if(frame == 0)
         {
             msgPos = new Vector3((float)singleTarget.transform.position.x + (float)waypoint.position.y, -(float)waypoint.position.z, (float)singleTarget.transform.position.z + (float)waypoint.position.x);
-            // msgRot.x = -msgRot.x;
-            // msgRot.y = -msgRot.y;
-            // msgRot.z = -msgRot.z;
-            msgRot = singleTarget.transform.rotation * msgRot;
+            msgRot = msgRot;
         }
         else if(frame == 1)
         {
             msgPos = new Vector3((float)auv.transform.position.x - (float)waypoint.position.y, (float)auv.transform.position.y - (float)waypoint.position.z, (float)auv.transform.position.z - (float)waypoint.position.x);
-            // msgRot.x = -msgRot.x;
-            // msgRot.y = -msgRot.y;
-            // msgRot.z = -msgRot.z;
             msgRot = auv.transform.rotation * msgRot;
         }
         else if(frame == 2)
         {
             msgPos = new Vector3((float)auv.transform.position.x + (float)waypoint.position.y, (float)auv.transform.position.y - (float)waypoint.position.z, (float)auv.transform.position.z + (float)waypoint.position.x);
-            // msgRot.x = -msgRot.x;
-            // msgRot.y = -msgRot.y;
-            // msgRot.z = -msgRot.z;
-            msgRot = singleTarget.transform.rotation * msgRot;
+            msgRot = msgRot;
         }
         else if(frame == 3)
         {
             msgPos = new Vector3((float)singleTarget.transform.position.x + (float)waypoint.position.y, -(float)waypoint.position.z, (float)singleTarget.transform.position.z + (float)waypoint.position.x);
-            // msgRot.x = -msgRot.x;
-            // msgRot.y = -msgRot.y;
-            // msgRot.z = -msgRot.z;
             msgRot = auv.transform.rotation * msgRot;
         }
 
