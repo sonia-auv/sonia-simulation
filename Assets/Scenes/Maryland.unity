@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667555, g: 0.4842717, b: 0.56452394, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23504,7 +23504,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1662126, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 0
@@ -69469,7 +69469,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1662126, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -84369,7 +84369,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1662126, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -99150,8 +99150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ef303d0d6b4d651b5418e8c1ee869d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topicName: initial_condition
-  auv: {fileID: 631790084}
 --- !u!114 &1481727812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132926,7 +132924,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1662126, y: 1}
+    m_SensorSize: {x: 1.4670846, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -145326,6 +145324,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1154163993079703972}
+  - component: {fileID: 1967996784290542371}
+  - component: {fileID: 1967996784290542370}
+  - component: {fileID: 1967996784290542369}
+  - component: {fileID: 1967996784290542368}
+  - component: {fileID: 1967996784290542367}
   m_Layer: 0
   m_Name: Maryland
   m_TagString: Untagged
@@ -145333,6 +145336,71 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1967996784290542367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967996784290542366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.050317705, y: 0.0006266484, z: 0.023339314}
+  m_Center: {x: 0.0002371483, y: -0.004334082, z: -0.011567801}
+--- !u!65 &1967996784290542368
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967996784290542366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00034637452, y: 0.0048461333, z: 0.023339314}
+  m_Center: {x: -0.02483587, y: -0.0024307556, z: -0.011567801}
+--- !u!65 &1967996784290542369
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967996784290542366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0002624245, y: 0.0031440197, z: 0.023339314}
+  m_Center: {x: 0.025066638, y: -0.0016242474, z: -0.011567801}
+--- !u!65 &1967996784290542370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967996784290542366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.050198637, y: 0.0048483363, z: 0.00047402957}
+  m_Center: {x: 0.00020528604, y: -0.0023049242, z: -0.023176488}
+--- !u!65 &1967996784290542371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967996784290542366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.050198637, y: 0.0049517937, z: 0.00045580603}
+  m_Center: {x: 0.00020528604, y: -0.0023566533, z: -0.00011494483}
 --- !u!4 &1979360952596954285
 Transform:
   m_ObjectHideFlags: 0
