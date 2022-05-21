@@ -5,7 +5,7 @@ using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 
 
 /// <summary>
-/// Example demonstration of implementing a UnityService that receives a Request message from another ROS node and sends a Response back
+/// Service that gets a submarine position and sends it as initial condition to start the simulation.
 /// </summary>
 public class GetInitialConditionService : MonoBehaviour
 {
@@ -43,6 +43,17 @@ public class GetInitialConditionService : MonoBehaviour
             objectPoseResponse.object_pose.orientation.y = -gameObject.transform.rotation.x;
             objectPoseResponse.object_pose.orientation.z = gameObject.transform.rotation.y;
             objectPoseResponse.object_pose.orientation.w = gameObject.transform.rotation.w;
+        }
+        else
+        {
+            objectPoseResponse.object_pose.position.x = 0;
+            objectPoseResponse.object_pose.position.y = 0;
+            objectPoseResponse.object_pose.position.z = 0;
+
+            objectPoseResponse.object_pose.orientation.x = 0;
+            objectPoseResponse.object_pose.orientation.y = 0;
+            objectPoseResponse.object_pose.orientation.z = 0;
+            objectPoseResponse.object_pose.orientation.w = 0;
         }
 
         return objectPoseResponse;
