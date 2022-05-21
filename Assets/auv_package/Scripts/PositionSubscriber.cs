@@ -31,6 +31,10 @@ public class PositionSubscriber : MonoBehaviour
     void StartSimulation(TrueRosPos positionMessage)
     {
         simulationMode = true;
+        Vector3 msgPos = new Vector3((float)positionMessage.position.y, 0.0f, (float)positionMessage.position.x);
+        Quaternion msgRot = new Quaternion(-(float)0.0,(float)0.0,-(float)0.0,(float)0.0);
+        origin.transform.position = msgPos;
+        origin.transform.rotation = msgRot;
     }
 
     void TruePositionChange(TrueRosPos positionMessage)
