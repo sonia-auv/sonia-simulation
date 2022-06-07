@@ -111,7 +111,7 @@ public class SonarDataPublisherPC : MonoBehaviour
             else
             {
                 Debug.DrawRay(Sonar.transform.position, ray.transform.forward * range, Color.red);
-                addData(range, angle); // no more hit -> max value
+                // addData(range, angle); // no more hit -> max value
                 Debug.Log("Did not Hit");
             }
             ++index;
@@ -119,8 +119,8 @@ public class SonarDataPublisherPC : MonoBehaviour
     }
     private void addData(in RaycastHit newhit,in float rayAngle) //true hit
     {
-        data.Add( newhit.distance * (float) Math.Cos((Math.PI / 180) *rayAngle) ); // x
-        data.Add( newhit.distance * (float) Math.Sin((Math.PI / 180) *rayAngle) ); // y
+        data.Add( newhit.distance * (float) Math.Cos((Math.PI / 180) *rayAngle) + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f) ); // x
+        data.Add( newhit.distance * (float) Math.Sin((Math.PI / 180) *rayAngle) + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f)); // y
         data.Add((float) 0); // z
         data.Add((float) 0.1); // intensity
         ++width;
@@ -167,7 +167,7 @@ public class SonarDataPublisherPC : MonoBehaviour
             if(maxHit.distance < range) // add max value in result
             {
                 Debug.DrawRay(maxHit.point, ray.transform.forward * (range - maxHit.distance), Color.yellow); // no more hit -> max value
-                addData(range, rayAngle);
+                //addData(range, rayAngle);
             }
             Debug.Log("Did Hit");   
     }
