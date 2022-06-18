@@ -12,7 +12,7 @@ public class PositionSubscriber : MonoBehaviour
     public GameObject origin;
     private string startSimulationTopicName = "/proc_simulation/start_simulation";
     private string trueStateTopicName = "/proc_simulation/true_states";
-    private string estimatedTopicName = "/telemetry/auv_states";
+    private string estimatedTopicName = "/proc_nav/auv_states";
 
     private bool simulationMode = false ;
 
@@ -57,17 +57,17 @@ public class PositionSubscriber : MonoBehaviour
             //Get message Info
             Vector3 msgPos = new Vector3((float)origin.transform.position.x + (float)positionMessage.pose.pose.position.y, -(float)positionMessage.pose.pose.position.z, (float)origin.transform.position.z + (float)positionMessage.pose.pose.position.x);
             //Quaternion msgRot = Quaternion.Euler((float)positionMessage.pose.pose.orientation.y, -(float)positionMessage.pose.pose.orientation.z, (float)positionMessage.pose.pose.orientation.x);
-            Quaternion msgRot = Quaternion.Euler((float)positionMessage.pose.pose.orientation.x, (float)positionMessage.pose.pose.orientation.y, (float)positionMessage.pose.pose.orientation.z);
+            Quaternion msgRot = new Quaternion((float)positionMessage.pose.pose.orientation.x, (float)positionMessage.pose.pose.orientation.y, (float)positionMessage.pose.pose.orientation.z, (float)positionMessage.pose.pose.orientation.w);
             
             auv.transform.position = msgPos;
-            auv.transform.rotation = msgRot;
+            auv.transform.rotation = ConvertRightHandedToLeftHandedQuaternion(msgRot);
         }
     }
 
     private Quaternion ConvertRightHandedToLeftHandedQuaternion (Quaternion rightHandedQuaternion)
     {
         return new Quaternion (-rightHandedQuaternion.y,
-                            rightHandedQuaternion.z,
+                            - rightHandedQuaternion.z,
                             - rightHandedQuaternion.x,
                                 rightHandedQuaternion.w);
     }
