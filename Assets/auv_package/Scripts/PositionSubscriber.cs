@@ -67,7 +67,7 @@ public class PositionSubscriber : MonoBehaviour
     private Quaternion ConvertRightHandedToLeftHandedQuaternion (Quaternion rightHandedQuaternion)
     {
         return new Quaternion (-rightHandedQuaternion.y,
-                            - rightHandedQuaternion.z,
+                            rightHandedQuaternion.z,
                             - rightHandedQuaternion.x,
                                 rightHandedQuaternion.w);
     }
