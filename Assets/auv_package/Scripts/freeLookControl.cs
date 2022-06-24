@@ -10,38 +10,41 @@ public float minView = 10;
 public float maxView = 70; 
 private CinemachineFreeLook freelook;
 
-  void Start(){
-        CinemachineCore.GetInputAxis = GetAxisCustom;
-         
-        freelook = GetComponentInChildren<CinemachineFreeLook>();
-    }
-    public float GetAxisCustom(string axisName){
-        if(axisName == "Mouse X"){
-            if (Input.GetMouseButton(1)){
-                return UnityEngine.Input.GetAxis("Mouse X");
-            } else{
-                return 0;
-            }
+void Start()
+{
+    CinemachineCore.GetInputAxis = GetAxisCustom;
+        
+    freelook = GetComponentInChildren<CinemachineFreeLook>();
+}
+
+public float GetAxisCustom(string axisName)
+{
+    if(axisName == "Mouse X"){
+        if (Input.GetMouseButton(1)){
+            return UnityEngine.Input.GetAxis("Mouse X");
+        } else{
+            return 0;
         }
-        else if (axisName == "Mouse Y"){
-            if (Input.GetMouseButton(1)){
-                return UnityEngine.Input.GetAxis("Mouse Y");
-            } else{
-                return 0;
-            }
+    }
+    else if (axisName == "Mouse Y"){
+        if (Input.GetMouseButton(1)){
+            return UnityEngine.Input.GetAxis("Mouse Y");
+        } else{
+            return 0;
         }
-        return UnityEngine.Input.GetAxis(axisName);
     }
+    return UnityEngine.Input.GetAxis(axisName);
+}
 
-    private void Update() {
+private void Update()
+{
+    freelook.m_Lens.FieldOfView += Input.mouseScrollDelta.y * scrollSpeed;
 
-      freelook.m_Lens.FieldOfView += Input.mouseScrollDelta.y * scrollSpeed;
-
-      if (freelook.m_Lens.FieldOfView > maxView){
-          freelook.m_Lens.FieldOfView = maxView;
-      }
-      else if (freelook.m_Lens.FieldOfView < minView){
-          freelook.m_Lens.FieldOfView = minView;
-      }
+    if (freelook.m_Lens.FieldOfView > maxView){
+        freelook.m_Lens.FieldOfView = maxView;
     }
+    else if (freelook.m_Lens.FieldOfView < minView){
+        freelook.m_Lens.FieldOfView = minView;
+    }
+}
 }

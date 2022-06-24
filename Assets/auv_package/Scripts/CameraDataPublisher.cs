@@ -29,6 +29,7 @@ public class CameraDataPublisher : MonoBehaviour
     private double ts; // Camera sample time
     private DateTime dtk = DateTime.Now; // Time when last image is generate
     private DateTime dt = DateTime.Now; // Current time
+
     void Start()
     {
         sequence = 0;
@@ -56,8 +57,7 @@ public class CameraDataPublisher : MonoBehaviour
 
         if (Input.GetKeyDown(bottomStop))
         {
-             changeCameraStatus(ref bottomCamera);
-             
+            changeCameraStatus(ref bottomCamera);
         }
     }
     private void LateUpdate() 
@@ -129,6 +129,8 @@ public class CameraDataPublisher : MonoBehaviour
         Destroy(tex);
     }
     
+    // Flip the image or it is published upside down on ROS.
+    // Not optimized, takes a lot of resources.
     private void FlipTextureVertically(ref Texture2D original)
     {
         Color[] originalPixels = original.GetPixels();

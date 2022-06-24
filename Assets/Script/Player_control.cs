@@ -4,36 +4,37 @@ using System.Collections;
 
 public class Player_control : MonoBehaviour
 {
-    private string toggleFront = "f6";
-    private string toggleBottom = "f7";
-    private string toggleFlyCam = "v";
+    //private string toggleCam = "v";
+    private string displayFreeCam = "1";
+    private string displayFlyCam = "2";
 
     public GameObject front = null;
     public GameObject bottom = null;
     public GameObject flyCam = null;
+    public GameObject freeCam = null;
     public GameObject mainMenu = null;
     public GameObject optionsMenu = null;
 
+    void Start()
+    {
+            freeCam.SetActive(true);
+            flyCam.SetActive(false);
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(toggleFront))
+        if (Input.GetKeyDown(displayFreeCam))
         {
-           /* ToggleFront();
-            UpdateDisplay();
-            Debug.Log("ToggleFront");*/
+            freeCam.SetActive(true);
+            flyCam.SetActive(false);
+            Debug.Log("Display Free Cam");
         }
 
-        if (Input.GetKeyDown(toggleBottom))
+        if (Input.GetKeyDown(displayFlyCam))
         {
-            /*ToggleBottom();
-            UpdateDisplay();
-            Debug.Log("ToggleBottom");*/
-        }
-
-        if (Input.GetKeyDown(toggleFlyCam))
-        {
-            ToggleFlyCam();
-            Debug.Log("toggleFlyCam");
+            freeCam.SetActive(false);
+            flyCam.SetActive(true);
+            Debug.Log("Display Fly Cam");
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -43,41 +44,17 @@ public class Player_control : MonoBehaviour
         }
     }
 
-    private void ToggleFront()
-    {
-       /* if (front.activeSelf)
-        {
-            front.SetActive(false);
-        }
-        else
-        {
-            front.SetActive(true);
-        }*/
-    }
-
-    private void ToggleBottom()
-    {
-        /*if (bottom.activeSelf)
-        {
-            bottom.SetActive(false);
-        }
-        else
-        {
-            bottom.SetActive(true);
-        }*/
-    }
-
-    private void ToggleFlyCam()
-    {
-        if (flyCam.activeSelf)
-        {
-            flyCam.SetActive(false);
-        }
-        else
-        {
-            flyCam.SetActive(true);
-        }
-    }
+    // private void ToggleFlyCam()
+    // {
+    //     if (flyCam.activeSelf)
+    //     {
+    //         flyCam.SetActive(false);
+    //     }
+    //     else
+    //     {
+    //         flyCam.SetActive(true);
+    //     }
+    // }
 
     private void ToggleMenu()
     {
@@ -86,22 +63,5 @@ public class Player_control : MonoBehaviour
             optionsMenu.SetActive(false);
         }
         mainMenu.SetActive(!mainMenu.activeSelf);
-
-    }
-
-    private void UpdateDisplay()
-    {
-        if (bottom.activeSelf && front.activeSelf)
-        {
-            front.GetComponent<Camera>().rect = new Rect(0.5f,0.0f,0.5f,1.0f);
-            bottom.GetComponent<Camera>().rect = new Rect(0.0f,0.0f,0.5f,1.0f);
-            Debug.Log("SplitScreen");
-        }
-        else
-        {
-            front.GetComponent<Camera>().rect = new Rect(0.0f,0.0f,1.0f,1.0f);
-            bottom.GetComponent<Camera>().rect = new Rect(0.0f,0.0f,1.0f,1.0f);
-            Debug.Log("Single Cam");
-        }
     }
 }
