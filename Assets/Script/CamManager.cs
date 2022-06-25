@@ -14,20 +14,20 @@ public class CamManager : MonoBehaviour
             FlyCam.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButtonDown("Switch1"))
-        {
-            FreeCam.SetActive(true);
-            FlyCam.SetActive(false);
-        }
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     if (Input.GetButtonDown("Switch1"))
+    //     {
+    //         FreeCam.SetActive(true);
+    //         FlyCam.SetActive(false);
+    //     }
 
-        if (Input.GetButtonDown("Switch4"))
-        {
-            FreeCam.SetActive(false);
-            FlyCam.SetActive(true);
-        }
+    //     if (Input.GetButtonDown("Switch4"))
+    //     {
+    //         FreeCam.SetActive(false);
+    //         FlyCam.SetActive(true);
+    //     }
         
-    }
+    // }
 }

@@ -15,13 +15,8 @@ public class Camera_controller : MonoBehaviour {
     private float rotY = 0.0f;
     private float rotX = 0.0f;
     private float rotZ = 0.0f;
-    private float posX = 0.0f;
-    private float posY = 0.0f;
-    private float posZ = 0.0f;
 
     private int invX = -1;
-
-     
 
     private void OnEnable() {
         flyCam.transform.position = auv.transform.position;
