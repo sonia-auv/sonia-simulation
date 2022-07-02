@@ -8,8 +8,10 @@ using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 
 public class PositionSubscriber : MonoBehaviour
 {
-    public GameObject auv;
+    public GameObject AUV8;
+    public GameObject AUV7;
     public GameObject origin;
+    private GameObject auv;
     private string startSimulationTopicName = "/proc_simulation/start_simulation";
     private string trueStateTopicName = "/proc_simulation/true_states";
     private string estimatedTopicName = "/proc_nav/auv_states";
@@ -21,12 +23,31 @@ public class PositionSubscriber : MonoBehaviour
         ROSConnection.GetOrCreateInstance().Subscribe<TrueRosPos>(startSimulationTopicName,StartSimulation);
         ROSConnection.GetOrCreateInstance().Subscribe<TrueRosPos>(trueStateTopicName,TruePositionChange);
         ROSConnection.GetOrCreateInstance().Subscribe<EstimatedRosPos>(estimatedTopicName,EstimatedPositionChange);
+        if (AUV7.activeInHierarchy) 
+        {
+            auv = AUV7;
+        }
+        else 
+        {
+            auv = AUV8;
+        }
         Vector3 pose = auv.transform.position;
         pose.y = (float)0.0;
         origin.transform.position = pose;
         origin.transform.rotation = auv.transform.rotation;
+    }
 
-    }   
+    void Update()
+    {
+        if (AUV8.activeInHierarchy)
+        {
+            auv = AUV8;
+        }
+        else if (AUV7.activeInHierarchy) 
+        {
+            auv = AUV7;
+        }
+    }
 
     void StartSimulation(TrueRosPos positionMessage)
     {
