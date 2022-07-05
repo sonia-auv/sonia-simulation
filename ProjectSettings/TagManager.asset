@@ -6,6 +6,7 @@ TagManager:
   tags:
   - water
   - Hideable
+  - AUV
   layers:
   - Default
   - TransparentFX
