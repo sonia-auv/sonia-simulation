@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class Player_control : MonoBehaviour
 {
-    //private string toggleCam = "v";
     private string displayFreeCam = "1";
     private string displayFlyCam = "2";
     private string displayAUV7 = "7";
@@ -22,7 +21,6 @@ public class Player_control : MonoBehaviour
     public GameObject AUV8 = null;
     public GameObject mainMenu = null;
     public GameObject optionsMenu = null;
-    // private List<GameObject> hideableItem = new List<GameObject>();
 
     void Start()
     {
@@ -32,14 +30,6 @@ public class Player_control : MonoBehaviour
             AUV7.SetActive(false);
             freeLookAUV8.SetActive(true);
             freeLookAUV7.SetActive(false);
-
-            // foreach (GameObject item in GameObject.FindGameObjectsWithTag("Hideable"))
-            // {
-            //     Debug.Log("Found item : " + item.name);
-            //     hideableItem.Add(item);
-            //     Debug.Log(hideableItem);
-            //     //item.SetActive(!item.activeSelf);
-            // }
     }
 
     void Update()
@@ -79,7 +69,6 @@ public class Player_control : MonoBehaviour
         if (Input.GetKeyDown(hideCovers))
         {
             foreach (GameObject item in GameObject.FindGameObjectsWithTag("Hideable"))
-            //foreach (GameObject item in hideableItem)
             {
                 int LayerInvisible = LayerMask.NameToLayer("Invisible");
                 int LayerObstacle = LayerMask.NameToLayer("Obstacle");
@@ -92,7 +81,6 @@ public class Player_control : MonoBehaviour
                     item.layer = LayerInvisible;
                 }
                 Debug.Log("Current layer: " + item.layer);
-                //item.SetActive(!item.activeSelf);
             }
         }
 
