@@ -75,12 +75,13 @@ public class Player_control : MonoBehaviour
                 if (item.layer == LayerInvisible)
                 {
                     item.layer = LayerObstacle;
+                    ChangeChildLayer(item.transform, LayerObstacle);
                 }
                 else if (item.layer == LayerObstacle)
                 {
                     item.layer = LayerInvisible;
+                    ChangeChildLayer(item.transform, LayerInvisible);
                 }
-                Debug.Log("Current layer: " + item.layer);
             }
         }
 
@@ -91,18 +92,6 @@ public class Player_control : MonoBehaviour
         }
     }
 
-    // private void ToggleFlyCam()
-    // {
-    //     if (flyCam.activeSelf)
-    //     {
-    //         flyCam.SetActive(false);
-    //     }
-    //     else
-    //     {
-    //         flyCam.SetActive(true);
-    //     }
-    // }
-
     private void ToggleMenu()
     {
         if (optionsMenu.activeSelf)
@@ -110,5 +99,14 @@ public class Player_control : MonoBehaviour
             optionsMenu.SetActive(false);
         }
         mainMenu.SetActive(!mainMenu.activeSelf);
+    }
+
+    private void ChangeChildLayer(Transform parent, int newLayer)
+    {
+        parent.gameObject.layer = newLayer;
+        for (int i = 0, count = parent.childCount; i < count; i++)
+        {
+            ChangeChildLayer(parent.GetChild(i), newLayer);
+        }
     }
 }
