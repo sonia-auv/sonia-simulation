@@ -10,7 +10,7 @@ using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 public class SelectAUV : MonoBehaviour
 {
     [SerializeField]
-    string m_ServiceName = "set_auv_srv";
+    string m_ServiceName = "/proc_simulation/select_auv";
 
     public GameObject AUV8 = null;
     public GameObject AUV7 = null;

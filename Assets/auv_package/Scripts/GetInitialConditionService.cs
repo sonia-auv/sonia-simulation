@@ -10,7 +10,7 @@ using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 public class GetInitialConditionService : MonoBehaviour
 {
     [SerializeField]
-    string m_ServiceName = "obj_pose_srv";
+    string m_ServiceName = "/proc_simulation/auv_pose";
 
     void Start()
     {
