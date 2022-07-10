@@ -15,7 +15,7 @@ add_message_files(FILES
 add_service_files(FILES
   ObjectPoseService.srv
 	PositionService.srv
-  SetAUVService.srv
+  SetSimulationAUVService.srv
 )
 
 generate_messages(

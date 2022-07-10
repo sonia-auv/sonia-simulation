@@ -22,7 +22,7 @@ public class SelectAUV : MonoBehaviour
     void Start()
     {
         // register the service with ROS
-        ROSConnection.GetOrCreateInstance().ImplementService<SetAUVServiceRequest, SetAUVServiceResponse>(m_ServiceName, SetAUVSimulation);
+        ROSConnection.GetOrCreateInstance().ImplementService<SetSimulationAUVServiceRequest, SetSimulationAUVServiceResponse>(m_ServiceName, SetAUVSimulation);
     }
 
     /// <summary>
@@ -30,13 +30,13 @@ public class SelectAUV : MonoBehaviour
     /// </summary>
     /// <param name="request">service request containing the object name</param>
     /// <returns>service response containing the object pose (or 0 if object not found)</returns>
-    private SetAUVServiceResponse SetAUVSimulation(SetAUVServiceRequest request)
+    private SetSimulationAUVServiceResponse SetAUVSimulation(SetSimulationAUVServiceRequest request)
     {
         // process the service request
         Debug.Log("Received request to change AUV for : " + request.object_name);
 
         // prepare a response
-        SetAUVServiceResponse SetAUVServiceResponse = new SetAUVServiceResponse();
+        SetSimulationAUVServiceResponse SimulationAUVServiceResponse = new SetSimulationAUVServiceResponse();
         // Find a game object with the requested name
         if (request.object_name == "AUV8")
         {
@@ -57,13 +57,13 @@ public class SelectAUV : MonoBehaviour
 
         if (request.object_name == activeAUV.name)
         {
-            SetAUVServiceResponse.success = true;
+            SimulationAUVServiceResponse.success = true;
         }
         else
         {
-            SetAUVServiceResponse.success = true;
+            SimulationAUVServiceResponse.success = true;
         }
 
-        return SetAUVServiceResponse;
+        return SimulationAUVServiceResponse;
     }
 }
