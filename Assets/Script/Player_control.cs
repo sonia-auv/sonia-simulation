@@ -10,7 +10,10 @@ public class Player_control : MonoBehaviour
     private string displayAUV7 = "7";
     private string displayAUV8 = "8";
     private string hideCovers = "b";
+    private string runSetup = "f";
 
+    public GameObject finale = null;
+    public GameObject demiFinale = null;
     public GameObject front = null;
     public GameObject bottom = null;
     public GameObject flyCam = null;
@@ -30,6 +33,8 @@ public class Player_control : MonoBehaviour
             AUV7.SetActive(false);
             freeLookAUV8.SetActive(true);
             freeLookAUV7.SetActive(false);
+            demiFinale.SetActive(true);
+            finale.SetActive(false);
     }
 
     void Update()
@@ -83,6 +88,21 @@ public class Player_control : MonoBehaviour
                     ChangeChildLayer(item.transform, LayerInvisible);
                 }
             }
+        }
+
+        if (Input.GetKeyDown(runSetup))
+        {
+            if (finale.activeSelf)
+            {
+                finale.SetActive(false);
+                demiFinale.SetActive(true);
+            }
+            else
+            {
+                finale.SetActive(true);
+                demiFinale.SetActive(false);
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
