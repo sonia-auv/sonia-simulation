@@ -31,11 +31,9 @@ public class TrajectorySubscriber : MonoBehaviour
             Vector3 msgPos = new Vector3((float)singleTarget.transform.position.x + (float)trajectoryMessage.transforms[i].translation.y, -(float)trajectoryMessage.transforms[i].translation.z, (float)singleTarget.transform.position.z + (float)trajectoryMessage.transforms[i].translation.x);
             Quaternion msgRot = new Quaternion(-(float)trajectoryMessage.transforms[i].rotation.y, (float)trajectoryMessage.transforms[i].rotation.z, -(float)trajectoryMessage.transforms[i].rotation.x, (float)trajectoryMessage.transforms[i].rotation.w);
 
-            //GameObject targetClone = Instantiate(singleTarget, msgPos, singleTarget.transform.rotation * msgRot);
             GameObject targetClone = Instantiate(singleTarget, msgPos, msgRot);
 
             Destroy(targetClone, 5+i/10);
-
         }
     }
 
@@ -68,11 +66,9 @@ public class TrajectorySubscriber : MonoBehaviour
             msgRot = auv.transform.rotation * msgRot;
         }
 
-        // Rotation ne fonctionne pas bien
         GameObject targetClone = Instantiate(singleTarget, msgPos, msgRot);
 
         Destroy(targetClone, time + 2);
-
     }
 
 }

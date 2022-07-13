@@ -89,13 +89,13 @@ public class SonarDataPublisher : MonoBehaviour
             if(Physics.Raycast(Sonar.transform.position,ray.transform.forward,out hit,20)) // transform forward -> axeZ(bleu)
             {
                 Debug.DrawRay(Sonar.transform.position, ray.transform.forward * hit.distance, Color.yellow);
-                Debug.Log("Did Hit");
+                //Debug.Log("Did Hit");
                 ranges[index] = hit.distance + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f);
             }
             else
             {
                 Debug.DrawRay(Sonar.transform.position, ray.transform.forward * 1000, Color.red,1);
-                Debug.Log("Did not Hit");
+                //Debug.Log("Did not Hit");
                 ranges[index] = 20 + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f); // range max, mais a voir
             }
             ++index;

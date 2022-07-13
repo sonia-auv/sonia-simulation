@@ -8,8 +8,10 @@ public class Camera_controller : MonoBehaviour {
     float camSensMouse = 2.0f; //How sensitive
     float mult = 1.0f; 
     private Quaternion localRotation = new Quaternion(0.0f,0.0f,0.0f,1.0f);
+    private GameObject auv = null;
     public GameObject flyCam = null;
-    public GameObject auv = null;
+    public GameObject AUV8 = null;
+    public GameObject AUV7 = null;
     public GameObject vueInverseeX = null;
 
     private float rotY = 0.0f;
@@ -19,7 +21,21 @@ public class Camera_controller : MonoBehaviour {
     private int invX = -1;
 
     private void OnEnable() {
+        if (AUV8.activeInHierarchy)
+        {
+            auv = AUV8;
+        }
+        else if (AUV7.activeInHierarchy) 
+        {
+            auv = AUV7;
+        }
+        else 
+        {
+            return;
+        }
+        Debug.Log(auv.transform.position);
         flyCam.transform.position = auv.transform.position;
+        Debug.Log(flyCam.transform.position);
         flyCam.transform.Translate(new Vector3(0,0,-1));
 
         flyCam.transform.rotation = auv.transform.rotation;
@@ -28,6 +44,7 @@ public class Camera_controller : MonoBehaviour {
     }
 
     void Update () {
+
         //Change speed
         if (Input.GetKey (KeyCode.LeftShift)){mult = 5.0f;}
         else {mult = 1.0f;}

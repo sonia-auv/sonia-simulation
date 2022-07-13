@@ -13,8 +13,9 @@ add_message_files(FILES
     UnityColor.msg
 )
 add_service_files(FILES
-    ObjectPoseService.srv
+  ObjectPoseService.srv
 	PositionService.srv
+  SetSimulationAUVService.srv
 )
 
 generate_messages(
