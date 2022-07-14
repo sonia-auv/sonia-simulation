@@ -66,7 +66,7 @@ public class SonarDataPublisherPC : MonoBehaviour
         fields.Add(new PointFieldMsg("x", 0, 7, 1));
         fields.Add(new PointFieldMsg("y", 4, 7, 1));
         fields.Add(new PointFieldMsg("z", 8, 7, 1));
-        fields.Add(new PointFieldMsg("Intensity", 16, 7, 1));
+        fields.Add(new PointFieldMsg("intensity", 12, 7, 1));
     }
     private void Update(){
         
@@ -90,8 +90,10 @@ public class SonarDataPublisherPC : MonoBehaviour
             sequence = sequence + 1 ;
 
             GatherData();
-            Publish();
-
+            if(width != 0)
+            {
+                Publish();
+            }
         }
     }
     private void GatherData()
