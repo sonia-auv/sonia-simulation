@@ -66,7 +66,7 @@ public class SonarDataPublisherPC : MonoBehaviour
         fields.Add(new PointFieldMsg("x", 0, 7, 1));
         fields.Add(new PointFieldMsg("y", 4, 7, 1));
         fields.Add(new PointFieldMsg("z", 8, 7, 1));
-        fields.Add(new PointFieldMsg("Intensity", 16, 7, 1));
+        fields.Add(new PointFieldMsg("intensity", 12, 7, 1));
     }
     private void Update(){
         
@@ -90,8 +90,10 @@ public class SonarDataPublisherPC : MonoBehaviour
             sequence = sequence + 1 ;
 
             GatherData();
-            Publish();
-
+            if(width != 0)
+            {
+                Publish();
+            }
         }
     }
     private void GatherData()
@@ -112,7 +114,7 @@ public class SonarDataPublisherPC : MonoBehaviour
             {
                 Debug.DrawRay(Sonar.transform.position, ray.transform.forward * range, Color.red);
                 // addData(range, angle); // no more hit -> max value
-                //Debug.Log("Did not Hit");
+                // Debug.Log("Did not Hit");
             }
             ++index;
         }
@@ -124,7 +126,7 @@ public class SonarDataPublisherPC : MonoBehaviour
         data.Add((float) 0); // z
         data.Add((float) 0.1); // intensity
         ++width;
-        //Debug.Log("distance X: " + newhit.distance * (float) Math.Cos(rayAngle) + "distance Y: " + newhit.distance * (float) Math.Sin(rayAngle) + "distance hit: " + newhit.distance);
+        // Debug.Log("distance X: " + newhit.distance * (float) Math.Cos(rayAngle) + "distance Y: " + newhit.distance * (float) Math.Sin(rayAngle) + "distance hit: " + newhit.distance);
     }
 
     private void addData(in float distance,in float rayAngle) // bad hit (i.e max range)
@@ -134,7 +136,7 @@ public class SonarDataPublisherPC : MonoBehaviour
         data.Add((float) 0); // z
         data.Add((float) 0); // intensity
         ++width;
-        //Debug.Log("distance X: " + distance * (float) Math.Sin(rayAngle) + "distance Y: " + distance * (float) Math.Cos(rayAngle) + "distance hit: " + distance + " bad hit");
+        // Debug.Log("distance X: " + distance * (float) Math.Sin(rayAngle) + "distance Y: " + distance * (float) Math.Cos(rayAngle) + "distance hit: " + distance + " bad hit");
     }
     private void hitHandler(in RaycastHit[] hits, ref List<float> data, in float rayAngle)
     {
@@ -169,7 +171,7 @@ public class SonarDataPublisherPC : MonoBehaviour
                 Debug.DrawRay(maxHit.point, ray.transform.forward * (range - maxHit.distance), Color.yellow); // no more hit -> max value
                 //addData(range, rayAngle);
             }
-            //Debug.Log("Did Hit");   
+            Debug.Log("Did Hit");   
     }
 
     private void Publish()

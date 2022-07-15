@@ -275,6 +275,25 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-3450943770256684801
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb60a22f311433c4c962b888d1393f88, type: 3}
+  m_Name: PaniniProjection
+  m_EditorClassIdentifier: 
+  active: 0
+  distance:
+    m_OverrideState: 1
+    m_Value: 0
+  cropToFit:
+    m_OverrideState: 1
+    m_Value: 0.219
 --- !u!114 &-917193244611974446
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -319,6 +338,8 @@ MonoBehaviour:
   - {fileID: 6585007878821388750}
   - {fileID: -5920150704733813310}
   - {fileID: -3572043922089071307}
+  - {fileID: 6311751551614540871}
+  - {fileID: -3450943770256684801}
 --- !u!114 &2559581844709591859
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -347,6 +368,34 @@ MonoBehaviour:
   saturation:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &6311751551614540871
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
+  m_Name: LensDistortion
+  m_EditorClassIdentifier: 
+  active: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 1
+  xMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.369
+  yMultiplier:
+    m_OverrideState: 1
+    m_Value: 0.365
+  center:
+    m_OverrideState: 1
+    m_Value: {x: 0.39, y: 0.5}
+  scale:
+    m_OverrideState: 1
+    m_Value: 0.88
 --- !u!114 &6585007878821388750
 MonoBehaviour:
   m_ObjectHideFlags: 3
