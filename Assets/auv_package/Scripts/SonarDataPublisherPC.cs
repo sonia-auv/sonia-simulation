@@ -103,8 +103,9 @@ public class SonarDataPublisherPC : MonoBehaviour
         {
             ray.transform.position = Sonar.transform.position;
             ray.transform.rotation = Sonar.transform.rotation;
-            ray.transform.Rotate(90-angle,-90,0); //ZXY convention
-            RaycastHit[] hits = Physics.RaycastAll(Sonar.transform.position,ray.transform.forward,range);
+            ray.transform.Translate(0.02f,0.1f,-0.1f,Space.Self);
+            ray.transform.Rotate(180, angle,180,Space.Self); //ZXY convention
+            RaycastHit[] hits = Physics.RaycastAll(ray.transform.position,ray.transform.forward,range);
 
             if(Convert.ToBoolean(hits.Length)) // transform forward -> axeZ(bleu)
             {
@@ -112,7 +113,7 @@ public class SonarDataPublisherPC : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(Sonar.transform.position, ray.transform.forward * range, Color.red);
+                Debug.DrawRay(ray.transform.position, ray.transform.forward * range, Color.red);
                 // addData(range, angle); // no more hit -> max value
                 // Debug.Log("Did not Hit");
             }
@@ -121,21 +122,31 @@ public class SonarDataPublisherPC : MonoBehaviour
     }
     private void addData(in RaycastHit newhit,in float rayAngle) //true hit
     {
-        data.Add( newhit.distance * (float) Math.Cos((Math.PI / 180) *rayAngle) + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f) ); // x
-        data.Add( newhit.distance * (float) Math.Sin((Math.PI / 180) *rayAngle) + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f)); // y
-        data.Add((float) 0); // z
-        data.Add((float) 0.1); // intensity
-        ++width;
+        float xpos = newhit.distance * (float) Math.Cos((Math.PI / 180) *rayAngle) + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f);
+        float ypos = -newhit.distance * (float) Math.Sin((Math.PI / 180) *rayAngle) + UnityEngine.Random.Range(-Resolution/2.0f,Resolution/2.0f);
+        
+        addPoint( // add point
+            xpos,
+            ypos,
+            0.0f,
+            0.1f
+        );
+        addPoint( // Add echo noise
+            xpos + 0.8f * (UnityEngine.Random.Range(0,2)*2-1) * Mathf.PerlinNoise(xpos, ypos),
+            ypos + 0.8f * (UnityEngine.Random.Range(0,2)*2-1) * Mathf.PerlinNoise(xpos, ypos),
+            0.0f,
+            0.1f
+        );
         // Debug.Log("distance X: " + newhit.distance * (float) Math.Cos(rayAngle) + "distance Y: " + newhit.distance * (float) Math.Sin(rayAngle) + "distance hit: " + newhit.distance);
     }
 
     private void addData(in float distance,in float rayAngle) // bad hit (i.e max range)
     {
-        data.Add( distance * (float) Math.Cos((Math.PI / 180) *rayAngle) ); // x
-        data.Add( distance * (float) Math.Sin((Math.PI / 180) *rayAngle) ); // y
-        data.Add((float) 0); // z
-        data.Add((float) 0); // intensity
-        ++width;
+        addPoint(
+            distance * (float) Math.Cos((Math.PI / 180) *rayAngle),
+            distance * (float) Math.Sin((Math.PI / 180) *rayAngle),
+            0.0f,0.0f
+            );
         // Debug.Log("distance X: " + distance * (float) Math.Sin(rayAngle) + "distance Y: " + distance * (float) Math.Cos(rayAngle) + "distance hit: " + distance + " bad hit");
     }
     private void hitHandler(in RaycastHit[] hits, ref List<float> data, in float rayAngle)
@@ -159,7 +170,7 @@ public class SonarDataPublisherPC : MonoBehaviour
 
                 if(i == 0)
                 {
-                    Debug.DrawRay(Sonar.transform.position, ray.transform.forward * hit.distance, Color.green); // first hit
+                    Debug.DrawRay(ray.transform.position, ray.transform.forward * hit.distance, Color.green); // first hit
                 }
                 else
                 {
@@ -172,6 +183,15 @@ public class SonarDataPublisherPC : MonoBehaviour
                 //addData(range, rayAngle);
             }
             Debug.Log("Did Hit");   
+    }
+
+    private void addPoint(float x,float y,float z,float intensity)
+    {
+        data.Add( x ); // x
+        data.Add( y ); // y
+        data.Add( z ); // z
+        data.Add(0.1f); // intensity
+        ++width;
     }
 
     private void Publish()
