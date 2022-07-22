@@ -129,13 +129,13 @@ public class SonarDataPublisherPC : MonoBehaviour
             xpos,
             ypos,
             0.0f,
-            0.1f
+            UnityEngine.Random.Range(0.15f,0.3f)
         );
         addPoint( // Add echo noise
-            xpos + 0.8f * (UnityEngine.Random.Range(0,2)*2-1) * Mathf.PerlinNoise(xpos, ypos),
-            ypos + 0.8f * (UnityEngine.Random.Range(0,2)*2-1) * Mathf.PerlinNoise(xpos, ypos),
+            xpos + 0.05f * (UnityEngine.Random.Range(0,2)*2-1) * Mathf.PerlinNoise(xpos, ypos),
+            ypos + 0.05f * (UnityEngine.Random.Range(0,2)*2-1) * Mathf.PerlinNoise(xpos, ypos),
             0.0f,
-            0.1f
+            UnityEngine.Random.Range(0.05f,0.2f)
         );
         // Debug.Log("distance X: " + newhit.distance * (float) Math.Cos(rayAngle) + "distance Y: " + newhit.distance * (float) Math.Sin(rayAngle) + "distance hit: " + newhit.distance);
     }
@@ -182,7 +182,7 @@ public class SonarDataPublisherPC : MonoBehaviour
                 Debug.DrawRay(maxHit.point, ray.transform.forward * (range - maxHit.distance), Color.yellow); // no more hit -> max value
                 //addData(range, rayAngle);
             }
-            Debug.Log("Did Hit");   
+            //Debug.Log("Did Hit");   
     }
 
     private void addPoint(float x,float y,float z,float intensity)
@@ -190,7 +190,7 @@ public class SonarDataPublisherPC : MonoBehaviour
         data.Add( x ); // x
         data.Add( y ); // y
         data.Add( z ); // z
-        data.Add(0.1f); // intensity
+        data.Add(intensity); // intensity
         ++width;
     }
 
