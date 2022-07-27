@@ -46,6 +46,7 @@ namespace RosMessageTypes.SoniaCommon
         public const byte CMD_KEEP_ALIVE = 30;
         //  DATA
         //  define IO CONTROL
+        public const byte DATA_IO_COULD_NOT_COMPLETE = 255;
         public const byte DATA_IO_DROPPER_PORT = 0;
         public const byte DATA_IO_DROPPER_STARBOARD = 1;
         public const byte DATA_IO_TORPEDO_PORT = 0;

@@ -14,35 +14,32 @@ namespace RosMessageTypes.SoniaCommon
         public override string RosMessageName => k_RosMessageName;
 
         public Std.HeaderMsg header;
-        public double x;
-        public double y;
-        public double z;
+        public double phaseRef;
+        public double phase1;
+        public double phase2;
+        public double phase3;
         public ushort frequency;
-        public double heading;
-        public double elevation;
         public ushort debug;
 
         public PingMsgMsg()
         {
             this.header = new Std.HeaderMsg();
-            this.x = 0.0;
-            this.y = 0.0;
-            this.z = 0.0;
+            this.phaseRef = 0.0;
+            this.phase1 = 0.0;
+            this.phase2 = 0.0;
+            this.phase3 = 0.0;
             this.frequency = 0;
-            this.heading = 0.0;
-            this.elevation = 0.0;
             this.debug = 0;
         }
 
-        public PingMsgMsg(Std.HeaderMsg header, double x, double y, double z, ushort frequency, double heading, double elevation, ushort debug)
+        public PingMsgMsg(Std.HeaderMsg header, double phaseRef, double phase1, double phase2, double phase3, ushort frequency, ushort debug)
         {
             this.header = header;
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            this.phaseRef = phaseRef;
+            this.phase1 = phase1;
+            this.phase2 = phase2;
+            this.phase3 = phase3;
             this.frequency = frequency;
-            this.heading = heading;
-            this.elevation = elevation;
             this.debug = debug;
         }
 
@@ -51,24 +48,22 @@ namespace RosMessageTypes.SoniaCommon
         private PingMsgMsg(MessageDeserializer deserializer)
         {
             this.header = Std.HeaderMsg.Deserialize(deserializer);
-            deserializer.Read(out this.x);
-            deserializer.Read(out this.y);
-            deserializer.Read(out this.z);
+            deserializer.Read(out this.phaseRef);
+            deserializer.Read(out this.phase1);
+            deserializer.Read(out this.phase2);
+            deserializer.Read(out this.phase3);
             deserializer.Read(out this.frequency);
-            deserializer.Read(out this.heading);
-            deserializer.Read(out this.elevation);
             deserializer.Read(out this.debug);
         }
 
         public override void SerializeTo(MessageSerializer serializer)
         {
             serializer.Write(this.header);
-            serializer.Write(this.x);
-            serializer.Write(this.y);
-            serializer.Write(this.z);
+            serializer.Write(this.phaseRef);
+            serializer.Write(this.phase1);
+            serializer.Write(this.phase2);
+            serializer.Write(this.phase3);
             serializer.Write(this.frequency);
-            serializer.Write(this.heading);
-            serializer.Write(this.elevation);
             serializer.Write(this.debug);
         }
 
@@ -76,12 +71,11 @@ namespace RosMessageTypes.SoniaCommon
         {
             return "PingMsgMsg: " +
             "\nheader: " + header.ToString() +
-            "\nx: " + x.ToString() +
-            "\ny: " + y.ToString() +
-            "\nz: " + z.ToString() +
+            "\nphaseRef: " + phaseRef.ToString() +
+            "\nphase1: " + phase1.ToString() +
+            "\nphase2: " + phase2.ToString() +
+            "\nphase3: " + phase3.ToString() +
             "\nfrequency: " + frequency.ToString() +
-            "\nheading: " + heading.ToString() +
-            "\nelevation: " + elevation.ToString() +
             "\ndebug: " + debug.ToString();
         }
 
