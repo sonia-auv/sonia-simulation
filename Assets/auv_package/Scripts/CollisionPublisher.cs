@@ -14,7 +14,7 @@ public class CollisionPublisher : MonoBehaviour
     ROSConnection ros;
     private UInt32 sequence;
 
-    private string topicName = "/proc_control/measurmment_residual";
+    private string topicName = "/proc_control/measurment_residual";
 
     void Start()
     {
