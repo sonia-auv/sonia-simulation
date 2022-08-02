@@ -33,8 +33,8 @@ public class Player_control : MonoBehaviour
             AUV7.SetActive(false);
             freeLookAUV8.SetActive(true);
             freeLookAUV7.SetActive(false);
-            demiFinale.SetActive(true);
-            finale.SetActive(false);
+            demiFinale.SetActive(false);
+            finale.SetActive(true);
     }
 
     void Update()
