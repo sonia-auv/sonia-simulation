@@ -1,0 +1,33 @@
+{
+    "name": "FreeLookControl",
+    "maps": [
+        {
+            "name": "Mouse",
+            "id": "7105877b-eb17-4c7d-9dcb-965df9889050",
+            "actions": [
+                {
+                    "name": "MouseLook",
+                    "type": "PassThrough",
+                    "id": "421158a6-85b9-418d-86b5-2646cd4b71e2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "61eaad03-27f1-4036-b985-6916578e1473",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
