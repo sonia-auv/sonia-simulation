@@ -14,7 +14,7 @@ namespace RosMessageTypes.SoniaCommon
         public override string RosMessageName => k_RosMessageName;
 
         // Name of classe
-        public Std.StringMsg class_name;
+        public string class_name;
         // Prediction confidence
         public float confidence;
         //  2D bounding box surrounding the object.
@@ -25,7 +25,7 @@ namespace RosMessageTypes.SoniaCommon
 
         public DetectionMsg()
         {
-            this.class_name = new Std.StringMsg();
+            this.class_name = "";
             this.confidence = 0.0f;
             this.top = 0.0;
             this.left = 0.0;
@@ -33,7 +33,7 @@ namespace RosMessageTypes.SoniaCommon
             this.right = 0.0;
         }
 
-        public DetectionMsg(Std.StringMsg class_name, float confidence, double top, double left, double bottom, double right)
+        public DetectionMsg(string class_name, float confidence, double top, double left, double bottom, double right)
         {
             this.class_name = class_name;
             this.confidence = confidence;
@@ -47,7 +47,7 @@ namespace RosMessageTypes.SoniaCommon
 
         private DetectionMsg(MessageDeserializer deserializer)
         {
-            this.class_name = Std.StringMsg.Deserialize(deserializer);
+            deserializer.Read(out this.class_name);
             deserializer.Read(out this.confidence);
             deserializer.Read(out this.top);
             deserializer.Read(out this.left);

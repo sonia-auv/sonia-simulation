@@ -30,6 +30,7 @@ namespace RosMessageTypes.SoniaCommon
         //  les define de la backplane/PSU
         public const byte CMD_VOLTAGE = 0;
         public const byte CMD_CURRENT = 1;
+        public const byte CMD_TEMPERATURE = 2;
         //  les define de la backplane/ESC
         public const byte CMD_READ_MOTOR = 15;
         public const byte CMD_ACT_MOTOR = 16;
@@ -40,6 +41,9 @@ namespace RosMessageTypes.SoniaCommon
         public const byte CMD_IO_TORPEDO_ACTION = 2;
         public const byte CMD_IO_ARM_ACTION = 3;
         public const byte CMD_IO_LEAK_SENSOR = 4;
+        // Common CMD
+        //  30 is the last command number allowed
+        public const byte CMD_KEEP_ALIVE = 30;
         //  DATA
         //  define IO CONTROL
         public const byte DATA_IO_DROPPER_PORT = 0;
