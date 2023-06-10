@@ -14,6 +14,9 @@ namespace RosMessageTypes.SoniaCommon
         public override string RosMessageName => k_RosMessageName;
 
         public Std.HeaderMsg header;
+        public double x;
+        public double y;
+        public double z;
         public ushort frequency;
         public double heading;
         public double elevation;
@@ -22,15 +25,21 @@ namespace RosMessageTypes.SoniaCommon
         public PingMsgMsg()
         {
             this.header = new Std.HeaderMsg();
+            this.x = 0.0;
+            this.y = 0.0;
+            this.z = 0.0;
             this.frequency = 0;
             this.heading = 0.0;
             this.elevation = 0.0;
             this.debug = 0;
         }
 
-        public PingMsgMsg(Std.HeaderMsg header, ushort frequency, double heading, double elevation, ushort debug)
+        public PingMsgMsg(Std.HeaderMsg header, double x, double y, double z, ushort frequency, double heading, double elevation, ushort debug)
         {
             this.header = header;
+            this.x = x;
+            this.y = y;
+            this.z = z;
             this.frequency = frequency;
             this.heading = heading;
             this.elevation = elevation;
@@ -42,6 +51,9 @@ namespace RosMessageTypes.SoniaCommon
         private PingMsgMsg(MessageDeserializer deserializer)
         {
             this.header = Std.HeaderMsg.Deserialize(deserializer);
+            deserializer.Read(out this.x);
+            deserializer.Read(out this.y);
+            deserializer.Read(out this.z);
             deserializer.Read(out this.frequency);
             deserializer.Read(out this.heading);
             deserializer.Read(out this.elevation);
@@ -51,6 +63,9 @@ namespace RosMessageTypes.SoniaCommon
         public override void SerializeTo(MessageSerializer serializer)
         {
             serializer.Write(this.header);
+            serializer.Write(this.x);
+            serializer.Write(this.y);
+            serializer.Write(this.z);
             serializer.Write(this.frequency);
             serializer.Write(this.heading);
             serializer.Write(this.elevation);
@@ -61,6 +76,9 @@ namespace RosMessageTypes.SoniaCommon
         {
             return "PingMsgMsg: " +
             "\nheader: " + header.ToString() +
+            "\nx: " + x.ToString() +
+            "\ny: " + y.ToString() +
+            "\nz: " + z.ToString() +
             "\nfrequency: " + frequency.ToString() +
             "\nheading: " + heading.ToString() +
             "\nelevation: " + elevation.ToString() +
