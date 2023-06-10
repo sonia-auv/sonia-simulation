@@ -8,7 +8,7 @@ public class TransformEditor : MonoBehaviour
 {
     [SerializeField] GameObject[] obstacles;
     [SerializeField] TMP_Dropdown obstacleDropdow;
-    [SerializeField] Toggle toggleButton;
+    [SerializeField] Toggle activeObstacleToggle;
     [SerializeField] List<string> obstacleNames;
 
     [SerializeField] TMP_InputField posX;
@@ -47,7 +47,7 @@ public class TransformEditor : MonoBehaviour
             rotY.text = selectedObstacle.transform.eulerAngles.y.ToString();
             rotZ.text = selectedObstacle.transform.eulerAngles.z.ToString();
 
-            toggleButton.isOn = selectedObstacle.activeSelf;
+            activeObstacleToggle.isOn = selectedObstacle.activeSelf;
         }
     }
 
@@ -62,7 +62,7 @@ public class TransformEditor : MonoBehaviour
     {
         if(selectedObstacle != null)
         {
-            selectedObstacle.SetActive(toggleButton.isOn);
+            selectedObstacle.SetActive(activeObstacleToggle.isOn);
         }
     }
 }

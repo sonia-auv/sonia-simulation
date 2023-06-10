@@ -27,6 +27,7 @@ public class Player_control : MonoBehaviour
     public GameObject mainMenu = null;
     public GameObject optionsMenu = null;
     public GameObject transformEditor = null;
+    public GameObject transformEditorButton = null;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class Player_control : MonoBehaviour
         finale.SetActive(false);
         customSceneConfig.SetActive(false);
         transformEditor.SetActive(false);
+        transformEditorButton.SetActive(false);
     }
 
     void Update()
@@ -99,6 +101,7 @@ public class Player_control : MonoBehaviour
         {
             customSceneConfig.SetActive(false);
             transformEditor.SetActive(false);
+            transformEditorButton.SetActive(false);
 
             if (finale.activeSelf)
             {
@@ -118,6 +121,7 @@ public class Player_control : MonoBehaviour
             demiFinale.SetActive(false);
             customSceneConfig.SetActive(true);
             transformEditor.SetActive(true);
+            transformEditorButton.SetActive(true);
         }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -125,6 +129,11 @@ public class Player_control : MonoBehaviour
             ToggleMenu();
             Debug.Log("toggleMenu");
         }
+    }
+
+    public void ToggleCustomConfigurationUI()
+    {
+        transformEditor.SetActive(!transformEditor.activeSelf);
     }
 
     private void ToggleMenu()
