@@ -11,9 +11,11 @@ public class Player_control : MonoBehaviour
     private string displayAUV8 = "8";
     private string hideCovers = "b";
     private string runSetup = "f";
+    private string customConfig = "c";
 
     public GameObject finale = null;
     public GameObject demiFinale = null;
+    public GameObject customSceneConfig = null;
     public GameObject front = null;
     public GameObject bottom = null;
     public GameObject flyCam = null;
@@ -24,17 +26,20 @@ public class Player_control : MonoBehaviour
     public GameObject AUV8 = null;
     public GameObject mainMenu = null;
     public GameObject optionsMenu = null;
+    public GameObject transformEditor = null;
 
     void Start()
     {
-            freeCam.SetActive(true);
-            flyCam.SetActive(false);
-            AUV8.SetActive(true);
-            AUV7.SetActive(false);
-            freeLookAUV8.SetActive(true);
-            freeLookAUV7.SetActive(false);
-            demiFinale.SetActive(true);
-            finale.SetActive(false);
+        freeCam.SetActive(true);
+        flyCam.SetActive(false);
+        AUV8.SetActive(true);
+        AUV7.SetActive(false);
+        freeLookAUV8.SetActive(true);
+        freeLookAUV7.SetActive(false);
+        demiFinale.SetActive(true);
+        finale.SetActive(false);
+        customSceneConfig.SetActive(false);
+        transformEditor.SetActive(false);
     }
 
     void Update()
@@ -92,6 +97,9 @@ public class Player_control : MonoBehaviour
 
         if (Input.GetKeyDown(runSetup))
         {
+            customSceneConfig.SetActive(false);
+            transformEditor.SetActive(false);
+
             if (finale.activeSelf)
             {
                 finale.SetActive(false);
@@ -102,10 +110,17 @@ public class Player_control : MonoBehaviour
                 finale.SetActive(true);
                 demiFinale.SetActive(false);
             }
-
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(customConfig))
+        {
+            finale.SetActive(false);
+            demiFinale.SetActive(false);
+            customSceneConfig.SetActive(true);
+            transformEditor.SetActive(true);
+        }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
         {
             ToggleMenu();
             Debug.Log("toggleMenu");
