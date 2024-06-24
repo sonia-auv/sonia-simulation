@@ -7,7 +7,6 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    public TMP_Dropdown dropdownTarget;
     public TMP_Dropdown dropdownScene;
     public GameObject mainMenu;
 

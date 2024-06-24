@@ -39,9 +39,9 @@ public class Player_control : MonoBehaviour
         freeLookAUV7.SetActive(false);
         demiFinale.SetActive(true);
         finale.SetActive(false);
-        customSceneConfig.SetActive(false);
-        transformEditor.SetActive(false);
-        transformEditorButton.SetActive(false);
+        if(customSceneConfig != null) customSceneConfig.SetActive(false);
+        if(transformEditor) transformEditor.SetActive(false);
+        if(transformEditorButton) transformEditorButton.SetActive(false);
     }
 
     void Update()
@@ -99,9 +99,9 @@ public class Player_control : MonoBehaviour
 
         if (Input.GetKeyDown(runSetup))
         {
-            customSceneConfig.SetActive(false);
-            transformEditor.SetActive(false);
-            transformEditorButton.SetActive(false);
+            if (customSceneConfig != null) customSceneConfig.SetActive(false);
+            if (transformEditor) transformEditor.SetActive(false);
+            if (transformEditorButton) transformEditorButton.SetActive(false);
 
             if (finale.activeSelf)
             {
@@ -120,8 +120,8 @@ public class Player_control : MonoBehaviour
             finale.SetActive(false);
             demiFinale.SetActive(false);
             customSceneConfig.SetActive(true);
-            transformEditor.SetActive(true);
-            transformEditorButton.SetActive(true);
+            if (transformEditor) transformEditor.SetActive(true);
+            if (transformEditorButton) transformEditorButton.SetActive(true);
         }
 
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -133,7 +133,10 @@ public class Player_control : MonoBehaviour
 
     public void ToggleCustomConfigurationUI()
     {
-        transformEditor.SetActive(!transformEditor.activeSelf);
+        if (transformEditor)
+        {
+            transformEditor.SetActive(!transformEditor.activeSelf);
+        }        
     }
 
     private void ToggleMenu()

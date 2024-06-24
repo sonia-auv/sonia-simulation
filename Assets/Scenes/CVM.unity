@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.5645232, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7011,7 +7011,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154524390}
-  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164288, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164395, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7056,7 +7056,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1418183, y: 1}
+    m_SensorSize: {x: 2.1366024, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10066,7 +10066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc9ebabcb57b4e489c509ff6966f78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropdownTarget: {fileID: 773420197}
   dropdownScene: {fileID: 1272323341}
   mainMenu: {fileID: 216654099}
 --- !u!224 &216654101
@@ -33562,6 +33561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finale: {fileID: 0}
   demiFinale: {fileID: 0}
+  customSceneConfig: {fileID: 0}
   front: {fileID: 1384166227}
   bottom: {fileID: 1831132923}
   flyCam: {fileID: 1471622105}
@@ -33572,6 +33572,8 @@ MonoBehaviour:
   AUV8: {fileID: 0}
   mainMenu: {fileID: 216654099}
   optionsMenu: {fileID: 156528131}
+  transformEditor: {fileID: 0}
+  transformEditorButton: {fileID: 0}
 --- !u!1 &755134139
 GameObject:
   m_ObjectHideFlags: 0
@@ -37805,7 +37807,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1418183, y: 1}
+    m_SensorSize: {x: 2.1366024, y: 1}
   m_Transitions:
     m_BlendHint: 2
     m_InheritPosition: 0
@@ -53630,7 +53632,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211531671}
-  m_LocalRotation: {x: -0.10576405, y: 0.008677537, z: 0.0009229806, w: 0.994353}
+  m_LocalRotation: {x: -0.10576406, y: 0.0086775655, z: 0.00092298235, w: 0.99435294}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53675,7 +53677,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1418183, y: 1}
+    m_SensorSize: {x: 2.1366024, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -54725,7 +54727,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237025921}
-  m_LocalRotation: {x: 0.0000000012663945, y: -0.82946956, z: -8.527606e-10, w: 0.55855197}
+  m_LocalRotation: {x: 0.0000000012618563, y: -0.82946956, z: -8.4970464e-10, w: 0.55855197}
   m_LocalPosition: {x: 5.9832077, y: -0.36, z: 2.832079}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -62745,7 +62747,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409009094}
-  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164288, w: 0.99905473}
+  m_LocalRotation: {x: -0.042586144, y: 0.008718598, z: 0.00037164395, w: 0.99905473}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -62790,7 +62792,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1418183, y: 1}
+    m_SensorSize: {x: 2.1366024, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -66528,7 +66530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50139433b39ad30bb9e4b2289152fbe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AUV8: {fileID: 0}
+  AUV8: {fileID: 631790084}
   AUV7: {fileID: 0}
   origin: {fileID: 0}
 --- !u!114 &1481727811
