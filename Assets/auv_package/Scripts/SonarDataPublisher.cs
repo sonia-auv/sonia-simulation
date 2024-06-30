@@ -105,7 +105,9 @@ public class SonarDataPublisher : MonoBehaviour
     private void Publish()
     {
         LaserScanMsg msg = new LaserScanMsg();
+#if !ROS2
         msg.header.seq = sequence;
+#endif
         msg.header.frame_id = "BODY";
         msg.angle_min = -openningAngle/2 *3.141592f /180.0f;
         msg.angle_max = openningAngle/2 *3.141592f /180.0f;
