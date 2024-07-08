@@ -13,8 +13,7 @@ public class Player_control : MonoBehaviour
     private string runSetup = "f";
     private string customConfig = "c";
 
-    public GameObject finale = null;
-    public GameObject demiFinale = null;
+    public GameObject[] configurationLayouts = null;
     public GameObject customSceneConfig = null;
     public GameObject front = null;
     public GameObject bottom = null;
@@ -29,6 +28,8 @@ public class Player_control : MonoBehaviour
     public GameObject transformEditor = null;
     public GameObject transformEditorButton = null;
 
+    private int configIndex = 0;
+
     void Start()
     {
         freeCam.SetActive(true);
@@ -37,11 +38,12 @@ public class Player_control : MonoBehaviour
         AUV7.SetActive(false);
         freeLookAUV8.SetActive(true);
         freeLookAUV7.SetActive(false);
-        demiFinale.SetActive(true);
-        finale.SetActive(false);
         if(customSceneConfig != null) customSceneConfig.SetActive(false);
         if(transformEditor) transformEditor.SetActive(false);
         if(transformEditorButton) transformEditorButton.SetActive(false);
+
+        DeactivateAllConfigurationLayouts();
+        configurationLayouts[0].SetActive(true);
     }
 
     void Update()
@@ -103,22 +105,12 @@ public class Player_control : MonoBehaviour
             if (transformEditor) transformEditor.SetActive(false);
             if (transformEditorButton) transformEditorButton.SetActive(false);
 
-            if (finale.activeSelf)
-            {
-                finale.SetActive(false);
-                demiFinale.SetActive(true);
-            }
-            else
-            {
-                finale.SetActive(true);
-                demiFinale.SetActive(false);
-            }
+            ToggleLayoutConfiguration();
         }
 
-        if (Input.GetKeyDown(customConfig))
+        if (customSceneConfig!= null && Input.GetKeyDown(customConfig))
         {
-            finale.SetActive(false);
-            demiFinale.SetActive(false);
+            DeactivateAllConfigurationLayouts();
             customSceneConfig.SetActive(true);
             if (transformEditor) transformEditor.SetActive(true);
             if (transformEditorButton) transformEditorButton.SetActive(true);
@@ -154,6 +146,24 @@ public class Player_control : MonoBehaviour
         for (int i = 0, count = parent.childCount; i < count; i++)
         {
             ChangeChildLayer(parent.GetChild(i), newLayer);
+        }
+    }
+
+    private void ToggleLayoutConfiguration()
+    {
+        if (configurationLayouts.Length < 2)
+            return;
+        configIndex++;
+        configurationLayouts[(configIndex-1) % configurationLayouts.Length].SetActive(false);
+        configurationLayouts[configIndex % configurationLayouts.Length].SetActive(true);
+
+    }
+
+    private void DeactivateAllConfigurationLayouts()
+    {
+        foreach (GameObject configLayout in configurationLayouts)
+        {
+            configLayout.SetActive(false);
         }
     }
 }
