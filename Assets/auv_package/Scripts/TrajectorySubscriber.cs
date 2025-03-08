@@ -2,7 +2,7 @@ using System.Threading;
 using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
 using MultiTrajectoryPoses = RosMessageTypes.Trajectory.MultiDOFJointTrajectoryPointMsg;
-using SingleWaypoint = RosMessageTypes.SoniaCommon.AddPoseMsg;
+using SingleWaypoint = RosMessageTypes.SoniaCommonRos2.PoseMsg;
 using Point = RosMessageTypes.Geometry.PointMsg;
 using Orient = RosMessageTypes.Geometry.QuaternionMsg;
 
