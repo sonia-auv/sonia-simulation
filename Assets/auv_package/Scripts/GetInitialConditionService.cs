@@ -1,6 +1,6 @@
 using UnityEngine;
 using Unity.Robotics.ROSTCPConnector;
-using RosMessageTypes.SoniaCommon;
+using RosMessageTypes.SoniaCommonRos2;
 using Unity.Robotics.ROSTCPConnector.ROSGeometry;
 
 

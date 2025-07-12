@@ -8,12 +8,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: def212d9eefe3d54c821e8af3fa267f0
+  - enabled: 0
+    path: Assets/Scenes/MRY.unity
+    guid: 1dc5f6469c762b14d8d68db0a1dd9b15
+  - enabled: 1
+    path: Assets/AssetsParAnnee/2024/Scenes/Maryland.unity
+    guid: 47092ad8b74863044b11712ae78a9e73
+  - enabled: 0
+    path: Assets/Scenes/Maryland2023.unity
+    guid: 31257e491b6b9af44a16e69abc606a9f
+  - enabled: 0
+    path: Assets/Scenes/Maryland.unity
+    guid: 4ef24092670e7ea4494811158bd38bcf
   - enabled: 1
     path: Assets/Scenes/transdec.unity
     guid: 03de314c73b773fe5ba07b8aa8214852
-  - enabled: 1
-    path: Assets/Scenes/Maryland.unity
-    guid: 4ef24092670e7ea4494811158bd38bcf
   - enabled: 1
     path: Assets/Scenes/CVM.unity
     guid: ff5cc4a69d6e13d43aa0357fd8ca82cc

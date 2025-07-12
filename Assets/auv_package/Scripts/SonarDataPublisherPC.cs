@@ -197,7 +197,7 @@ public class SonarDataPublisherPC : MonoBehaviour
     private void Publish()
     {
         PointCloud2Msg msg = new PointCloud2Msg();
-        msg.header.seq = sequence;
+        //msg.header.seq = sequence;
         msg.header.frame_id = "BODY";
         msg.height = 1;
         msg.width = width;
