@@ -41,7 +41,7 @@ public class GetInitialConditionService : MonoBehaviour
 
             objectPoseResponse.object_pose.orientation.x = gameObject.transform.rotation.z;
             objectPoseResponse.object_pose.orientation.y = -gameObject.transform.rotation.x;
-            objectPoseResponse.object_pose.orientation.z = gameObject.transform.rotation.y;
+            objectPoseResponse.object_pose.orientation.z = -gameObject.transform.rotation.y;
             objectPoseResponse.object_pose.orientation.w = gameObject.transform.rotation.w;
         }
         else
@@ -53,7 +53,7 @@ public class GetInitialConditionService : MonoBehaviour
             objectPoseResponse.object_pose.orientation.x = 0;
             objectPoseResponse.object_pose.orientation.y = 0;
             objectPoseResponse.object_pose.orientation.z = 0;
-            objectPoseResponse.object_pose.orientation.w = 0;
+            objectPoseResponse.object_pose.orientation.w = 1;
         }
 
         return objectPoseResponse;

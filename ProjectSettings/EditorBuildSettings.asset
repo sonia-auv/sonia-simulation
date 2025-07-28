@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: def212d9eefe3d54c821e8af3fa267f0
   - enabled: 0
-    path: Assets/Scenes/MRY.unity
-    guid: 1dc5f6469c762b14d8d68db0a1dd9b15
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/AssetsParAnnee/2024/Scenes/Maryland.unity
-    guid: 47092ad8b74863044b11712ae78a9e73
+    path: Assets/AssetsParAnnee/2025/Scenes/Maryland 2025.unity
+    guid: 6c6d42f57eeaa504ba4b88e60991557d
   - enabled: 0
-    path: Assets/Scenes/Maryland2023.unity
-    guid: 31257e491b6b9af44a16e69abc606a9f
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Maryland.unity
     guid: 4ef24092670e7ea4494811158bd38bcf
