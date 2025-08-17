@@ -40,8 +40,8 @@ public class GetInitialConditionService : MonoBehaviour
             objectPoseResponse.object_pose.position.z = -gameObject.transform.position.y;
 
             objectPoseResponse.object_pose.orientation.x = gameObject.transform.rotation.z;
-            objectPoseResponse.object_pose.orientation.y = -gameObject.transform.rotation.x;
-            objectPoseResponse.object_pose.orientation.z = -gameObject.transform.rotation.y;
+            objectPoseResponse.object_pose.orientation.y = gameObject.transform.rotation.x;
+            objectPoseResponse.object_pose.orientation.z = gameObject.transform.rotation.y;
             objectPoseResponse.object_pose.orientation.w = gameObject.transform.rotation.w;
         }
         else
